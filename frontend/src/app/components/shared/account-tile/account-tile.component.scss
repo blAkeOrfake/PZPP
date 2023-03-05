@@ -1,0 +1,39 @@
+@import 'src/variables';
+
+.tile-container {
+    min-width: 150px;
+    min-height: 100px;
+    height: 100px;
+    width: 100%;
+
+    background-color: #EBEBF4;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.tile-wrapper {
+    padding: 8px;
+    display: flex;
+    height: 100%;
+    gap: 8px;
+    flex-direction: column;
+}
+.account-name {
+    font-size: 16px;
+    color: $font-color;
+    font-weight: 500;
+}
+.account-balance {
+    font-size: 16px;
+    color: $font-color;
+    font-weight: 500;
+}
+.action-btn {
+    button {
+        width: 100%;
+        height: 28px;
+        line-height: 28px;
+    }
+}

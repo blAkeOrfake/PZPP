@@ -1,0 +1,76 @@
+<div class="sidepanel">
+    <div class="sidepanel__content">
+        <div class="title">
+            <span class="material-icons-outlined title-icon">account_balance</span>
+            Bank
+        </div>
+        <div class="navigation">
+            <div
+                [routerLink]="'account-details'"
+                [routerLinkActive]="['nav-item--is-active']"
+                class="nav-item nav-item--account"
+            >
+                <span class="material-icons-outlined nav-item--icon">person</span>
+                John Doe
+            </div>
+            <div
+                [routerLink]="'dashboard'"
+                [routerLinkActive]="['nav-item--is-active']"
+                class="nav-item"
+            >
+                <span class="material-icons-outlined nav-item--icon">dashboard</span>
+                Dashboard
+            </div>
+            <div
+                [routerLink]=""
+                class="nav-item"
+            >
+                <span class="material-icons-outlined nav-item--icon">receipt_long</span>
+                Payments
+            </div>
+            <div
+                [routerLink]=""
+                class="nav-item"
+            >
+                <span class="material-icons-outlined nav-item--icon">swap_horiz</span>
+                Transactions
+            </div>
+            <div
+                [routerLink]=""
+                class="nav-item"
+            >
+                <span class="material-icons-outlined nav-item--icon">groups</span>
+                Accounts
+            </div>
+            <div
+                [routerLink]=""
+                class="nav-item"
+            >
+                <span class="material-icons-outlined nav-item--icon">credit_card</span>
+                Cards
+            </div>
+            <div
+                [routerLink]=""
+                class="nav-item"
+            >
+                <span class="material-icons-outlined nav-item--icon">payments</span>
+                Products
+            </div>
+            <div
+                [routerLink]="'settings'"
+                [routerLinkActive]="['nav-item--is-active']"
+                class="nav-item"
+            >
+                <span class="material-icons-outlined nav-item--icon">settings</span>
+                Settings
+            </div>
+            <div
+                [routerLink]=""
+                class="nav-item nav-item--last"
+            >
+                <span class="material-icons-outlined nav-item--icon">logout</span>
+                Log out
+            </div>
+        </div>
+    </div>
+</div>
