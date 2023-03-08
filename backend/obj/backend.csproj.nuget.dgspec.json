@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\PZPP\\backend\\backend.csproj": {}
+    "/Users/psablik/Projects/PZPP/backend/backend.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\PZPP\\backend\\backend.csproj": {
+    "/Users/psablik/Projects/PZPP/backend/backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\PZPP\\backend\\backend.csproj",
+        "projectUniqueName": "/Users/psablik/Projects/PZPP/backend/backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\xampp\\htdocs\\PZPP\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\Artur\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\PZPP\\backend\\obj\\",
+        "projectPath": "/Users/psablik/Projects/PZPP/backend/backend.csproj",
+        "packagesPath": "/Users/psablik/.nuget/packages/",
+        "outputPath": "/Users/psablik/Projects/PZPP/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/psablik/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,13 +38,27 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.17.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -68,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.406/RuntimeIdentifierGraph.json"
         }
       }
     }
