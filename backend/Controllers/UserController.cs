@@ -28,19 +28,44 @@ namespace backend.Controllers
 
             using (var context = new Database())
             {
-                // Check if user already exists
                 var existingUser = context.Users.FirstOrDefault(u => u.id == user.id);
                 if (existingUser != null)
                 {
                     return Conflict("User already registered in the database.");
                 }
 
-                // Add user to database
                 context.Users.Add(user);
                 context.SaveChanges();
             }
 
             return CreatedAtRoute("user", new { id = user.id }, user);
+        }
+
+        [HttpPost("login")]
+        public ActionResult<User> Login([FromBody] User user)
+        {
+            if (user.password == null || user.username == null || user == null)
+            {
+                return BadRequest("User data is null.");
+            }
+
+
+            using (var context = new Database())
+            {
+                var checkUser = context.Users.FirstOrDefault(u => u.username == user.username);
+
+                if (checkUser == null)
+                {
+                    return Unauthorized("Wrong username.");
+                }
+
+                if (checkUser.password != user.password)
+                {
+                    return Unauthorized("Wrong user password");
+                }
+
+                return Ok("Login successful.");
+            }
         }
     }
 }
