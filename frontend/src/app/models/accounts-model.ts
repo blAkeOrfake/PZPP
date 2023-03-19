@@ -1,5 +1,5 @@
 export interface IAccount {
-    id: number;
+    id?: number;
     userId: number;
     name: string;
     type: AccountType;
@@ -10,7 +10,7 @@ export class Account implements IAccount{
         Object.assign(this, initialValues);
     }
 
-    id!: number;
+    id?: number;
     userId!: number;
     name!: string;
     type!: AccountType;

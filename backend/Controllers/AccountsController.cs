@@ -32,6 +32,15 @@ namespace backend.Controllers
                 return account;
             }
         }
+        [HttpGet("user/{userId}")]
+        public ActionResult<List<Account>> GetUserAccounts(int userId)
+        {
+            using (var context = new Database())
+            {
+                List<Account> accounts = context.Accounts.Where(a => a.UserId == userId).ToList<Account>();
+                return accounts;
+            }
+        }
 
         // POST api/values
         [HttpPost]
@@ -52,7 +61,7 @@ namespace backend.Controllers
                 context.Accounts.Add(account);
                 context.SaveChanges();
 
-                return Ok("Saved successfully");
+                return Ok();
             }
         }
 
@@ -66,7 +75,7 @@ namespace backend.Controllers
                 context.Accounts.Update(account);
                 context.SaveChanges();
 
-                return Ok("Update successfull");
+                return Ok();
             }
         }
 
@@ -79,12 +88,12 @@ namespace backend.Controllers
                 var account = context.Accounts.FirstOrDefault(a => a.Id == id);
 
                 if (account is null) {
-                    return BadRequest("Account not found");
+                    return BadRequest();
                 }
                 context.Accounts.Remove(account);
                 context.SaveChanges();
 
-                return Ok("Delete success");
+                return Ok();
             }
         }
     }

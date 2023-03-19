@@ -2,10 +2,40 @@
     class="tile-container"
 >
     <div class="tile-wrapper">
-        <div class="account-name">{{ accountName }}</div>
-        <div class="account-balance">$ {{ accountBalance }}</div>
-        <div class="action-btn">
-            <button mat-raised-button class="g-btn-primary">Transfer money</button>
-        </div>
+        <ng-container *ngIf="viewMode === 'view'; else addAccountTemplate">
+            <div>
+                <div class="remove-btn">
+                    <div>
+                        <button
+                            mat-icon-button
+                            (click)="onRemoveAccount.emit()"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="account-name">{{ accountName || 'My account' }}</div>
+            </div>
+            <div class="account-balance">$ {{ accountBalance }}</div>
+            <div class="action-btn">
+                <button mat-raised-button class="g-btn-primary">Transfer money</button>
+            </div>
+        </ng-container>
     </div>
 </div>
+
+<ng-template #addAccountTemplate>
+    <div
+        class="add-account-container"
+        (click)="onAddAccount.emit(); $event.stopPropagation()"
+    >
+        <div class="add-account-container__wrapper">
+            <button
+                mat-icon-button
+            >
+                <mat-icon>add_circle</mat-icon>
+            </button>
+            <div class="account-add-label">New account</div>
+        </div>
+    </div>
+</ng-template>

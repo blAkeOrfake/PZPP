@@ -1,18 +1,9 @@
 <div class="dashboard-container">
     <div class="title">Dashboard</div>
     
-    <div class="accounts">
-        <app-account-tile
-            accountName="Main account"
-            accountBalance="1123.00"
-        ></app-account-tile>
-        <app-account-tile
-            accountName="Savings account"
-            accountBalance="85255.00"
-        ></app-account-tile>
-        <app-account-tile
-            accountName="Currency account"
-            accountBalance="234.00"
-        ></app-account-tile>
+    <div>
+        <app-accounts-widget
+            [userId]="userId"
+        ></app-accounts-widget>
     </div>
 </div>

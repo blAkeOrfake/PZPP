@@ -1,0 +1,21 @@
+<div
+    class="accounts-container"
+>
+    <ng-container
+        *ngFor="let account of accounts"
+    >
+        <app-account-tile
+            [accountName]="account.name"
+            [accountBalance]="account.balance"
+            (onRemoveAccount)="removeAccount(account.id)"
+        ></app-account-tile>
+    </ng-container>
+    <div
+        *ngIf="accounts.length < 10"
+    >
+        <app-account-tile
+            [viewMode]="'create'"
+            (onAddAccount)="openAddAccountDialog()"
+        ></app-account-tile>
+    </div>
+</div>
