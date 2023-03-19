@@ -1,37 +1,41 @@
 ﻿<Properties StartupConfiguration="{08609324-E86D-479B-B770-E05597D8A621}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Migrations/20230317094311_ChangeAmountToBalance.cs">
     <Files>
-      <File FileName="Controllers/WeatherForecastController.cs" Line="9" Column="8" />
-      <File FileName="Program.cs" Line="26" Column="1" />
-      <File FileName="WeatherForecast.cs" Line="13" Column="2" />
-      <File FileName="Dockerfile" Line="22" Column="37" />
-      <File FileName=".dockerignore" Line="1" Column="1" />
-      <File FileName="Models/User.cs" Line="12" Column="1" />
-      <File FileName="Controllers/UserController.cs" Line="9" Column="15" />
-      <File FileName="Database.cs" Line="15" Column="1" />
+      <File FileName="Controllers/AccountsController.cs" Line="19" Column="49" />
+      <File FileName="Program.cs" />
+      <File FileName="Migrations/20230316202504_AddAccounts.cs" />
+      <File FileName="Migrations/20230308210347_Initial.cs" />
+      <File FileName="Migrations/DatabaseModelSnapshot.cs" />
+      <File FileName="Database.cs" />
+      <File FileName="Models/AccountType.cs" />
+      <File FileName="Controllers/UserController.cs" />
+      <File FileName="Models/Account.cs" />
+      <File FileName="Models/User.cs" />
+      <File FileName="Migrations/20230317094311_ChangeAmountToBalance.cs" Line="20" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="backend" expanded="True">
             <Node name="backend" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" selected="True" />
-              </Node>
+              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="20230317094311_ChangeAmountToBalance.cs" selected="True" />
+              </Node>
               <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.backend PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.backend PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>

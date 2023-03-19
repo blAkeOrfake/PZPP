@@ -20,3 +20,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// To create migration use command:
+// dotnet ef migrations add MyMigrationName
+
+// To update db, use:
+// dotnet ef database update

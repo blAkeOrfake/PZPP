@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/psablik/Projects/PZPP/backend/backend.csproj": {}
+    "/Users/jakub/repos/studia/PZPP/backend/backend.csproj": {}
   },
   "projects": {
-    "/Users/psablik/Projects/PZPP/backend/backend.csproj": {
+    "/Users/jakub/repos/studia/PZPP/backend/backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/psablik/Projects/PZPP/backend/backend.csproj",
+        "projectUniqueName": "/Users/jakub/repos/studia/PZPP/backend/backend.csproj",
         "projectName": "backend",
-        "projectPath": "/Users/psablik/Projects/PZPP/backend/backend.csproj",
-        "packagesPath": "/Users/psablik/.nuget/packages/",
-        "outputPath": "/Users/psablik/Projects/PZPP/backend/obj/",
+        "projectPath": "/Users/jakub/repos/studia/PZPP/backend/backend.csproj",
+        "packagesPath": "/Users/jakub/.nuget/packages/",
+        "outputPath": "/Users/jakub/repos/studia/PZPP/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/psablik/.nuget/NuGet/NuGet.Config"
+          "/Users/jakub/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -67,8 +67,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -80,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.406/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.106/RuntimeIdentifierGraph.json"
         }
       }
     }
