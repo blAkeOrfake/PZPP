@@ -1,10 +1,18 @@
 <div class="app-page-container">
   <div class="app-page-container__content-wrapper">
-    <app-sidepanel-left></app-sidepanel-left>
+    <div class="app-page-container__sidepanel">
+      <ng-container *ngIf="isLogged">
+        <app-sidepanel-left></app-sidepanel-left>
+      </ng-container>
+    </div>
     <div class="app-page-container__content-wrapper__outlet-container">
       <router-outlet></router-outlet>
     </div>
-    <app-sidepanel-right></app-sidepanel-right>
+    <div class="app-page-container__sidepanel">
+      <ng-container *ngIf="isLogged">
+        <app-sidepanel-right></app-sidepanel-right>
+      </ng-container>
+    </div>
   </div>
 </div>
 
