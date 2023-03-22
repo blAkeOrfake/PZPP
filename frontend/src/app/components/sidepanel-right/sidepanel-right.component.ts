@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidepanel-right.component.scss']
 })
 export class SidepanelRightComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
