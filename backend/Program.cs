@@ -2,15 +2,15 @@ var AllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: AllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("http://localhost:4200",
-                                              "http://localhost");
-                      });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy(name: AllowSpecificOrigins,
+//                      policy =>
+//                      {
+//                          policy.WithOrigins("http://localhost:4200",
+//                                              "http://localhost");
+//                      });
+//});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
