@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Security.Principal;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 namespace backend.Models;
 
 public class Account
@@ -15,4 +19,65 @@ public class Account
     public string Name { get; set; }
     public AccountType Type { get; set; }
     public double Balance { get; set; }
+
+    public static IEnumerable<Account> GetAccounts()
+    {
+        using (var context = new Database())
+        {
+            return context.Accounts.ToList();
+        }
+    }
+
+    public static void AddAccount(Account account)
+    {
+        using (var context = new Database())
+        {
+            context.Accounts.Add(account);
+            context.SaveChanges();
+        }
+    }
+
+    public static void DeleteAccount(Account account)
+    {
+        using (var context = new Database())
+        {
+            context.Accounts.Remove(account);
+            context.SaveChanges();
+        }
+    }
+
+    public static void UpdateAccoutById(int id, Account newValue)
+    {
+        using (var context = new Database())
+        {
+            var account = context.Accounts.FirstOrDefault(a => a.Id == newValue.Id);
+            account = newValue;
+            context.Accounts.Update(account);
+            context.SaveChanges();
+        }
+    }
+
+    public static Account? GetAccount(Account account)
+    {
+        using (var context = new Database())
+        {
+            return context.Accounts.FirstOrDefault(a => a.Id == account.Id);
+        }
+    }
+
+    public static ActionResult<Account?> GetAccountById(int id)
+    {
+        using (var context = new Database())
+        {
+            return context.Accounts.FirstOrDefault(a => a.Id == id);
+        }
+    }
+
+    public static List<Account> GetUserAccountsByUserId(int id)
+    {
+        using (var context = new Database())
+        {
+            return context.Accounts.Where(a => a.UserId == id).ToList<Account>();
+        }
+    }
 }
