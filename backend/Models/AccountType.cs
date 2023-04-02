@@ -1,11 +1,10 @@
 ﻿using System;
-namespace backend.Models
+namespace backend.Models;
+
+public enum AccountType
 {
-	public enum AccountType
-	{
-		General,
-		Savings,
-		Currency
-	}
+    General,
+    Savings,
+    Currency
 }
 
