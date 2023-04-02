@@ -37,23 +37,28 @@ public class Account
         }
     }
 
-    public static void DeleteAccount(Account account)
+    public static ActionResult<Account?> DeleteAccountById(int id)
     {
         using (var context = new Database())
         {
+            var account = Account.GetAccountById(id);
+
             context.Accounts.Remove(account);
             context.SaveChanges();
+            return account;
         }
     }
 
-    public static void UpdateAccoutById(int id, Account newValue)
+    public static ActionResult<Account?> UpdateAccoutById(int id, Account newValue)
     {
         using (var context = new Database())
         {
             var account = context.Accounts.FirstOrDefault(a => a.Id == newValue.Id);
             account = newValue;
+
             context.Accounts.Update(account);
             context.SaveChanges();
+            return account;
         }
     }
 
@@ -65,7 +70,7 @@ public class Account
         }
     }
 
-    public static ActionResult<Account?> GetAccountById(int id)
+    public static Account? GetAccountById(int id)
     {
         using (var context = new Database())
         {

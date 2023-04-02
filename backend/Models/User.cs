@@ -27,6 +27,18 @@ public class User
         }
     }
 
+    public static ActionResult<User> UpdateUserById(int id, User newValue)
+    {
+        using (var context = new Database())
+        {
+            var user = GetUserById(id);
+            user = newValue;
+            context.Users.Update(user);
+            context.SaveChanges();
+            return user;
+        }
+    }
+
     public static User? GetUserById(int id)
     {
         using (var context = new Database())
@@ -35,12 +47,13 @@ public class User
         }
     }
 
-    public static void AddUser(User user)
+    public static ActionResult<User> AddUser(User user)
     {
         using (var context = new Database())
         {
             context.Users.Add(user);
             context.SaveChanges();
+            return user;
         }
     }
 }
