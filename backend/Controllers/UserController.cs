@@ -64,6 +64,17 @@ public class UserController : ControllerBase
         return backend.Models.User.UpdateUserById(id, value);
     }
 
+    [HttpDelete("{id}")]
+    public ActionResult<User> Delete(int id)
+    {
+        if (backend.Models.User.GetUserById(id) == null)
+        {
+            return NotFound("User of that id was not found.");
+        }
+
+        return backend.Models.User.DeleteUserById(id);
+    }
+
     [HttpPost("login")]
     public ActionResult<User> Login([FromBody] User user)
     {

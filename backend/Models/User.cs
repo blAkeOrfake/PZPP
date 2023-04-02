@@ -56,4 +56,16 @@ public class User
             return user;
         }
     }
+
+    public static ActionResult<User> DeleteUserById(int id)
+    {
+        using (var context = new Database())
+        {
+            var user = GetUserById(id);
+
+            context.Users.Remove(user);
+            context.SaveChanges();
+            return user;
+        }
+    }
 }
