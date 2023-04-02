@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  isLogged: boolean = false;
   title = 'frontend';
 
-  ngOnInit(): void {
-    if(sessionStorage.getItem('isLoggedIn') === 'true') {
-      this.isLogged = true;
+  get isLogged() {
+    try {
+      return !!JSON.parse(localStorage.getItem('user') as string);
+    } catch (error) {
+      return false;
     }
   }
+  ngOnInit(): void {}
 }

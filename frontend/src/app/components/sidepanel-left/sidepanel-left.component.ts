@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-sidepanel-left',
@@ -8,16 +9,14 @@ import { Router } from '@angular/router';
 })
 export class SidepanelLeftComponent implements OnInit {
   constructor(
-    private router: Router
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
   }
 
-  logOut() {
-    sessionStorage.setItem('isLoggedIn', 'false');
-    window.location.reload();
-    this.router.navigate(['login']);
+  logOut(): void {
+    this.authService.logout();
   }
 
 }

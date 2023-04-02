@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { User } from '../../models/user.model';
+import { ERoutes } from 'src/app/helpers/routes';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -36,7 +37,7 @@ export class AuthService {
     logout() {
         localStorage.removeItem('user');
         this.userSubject.next(null);
-        this.router.navigate(['/login']);
+        this.router.navigate([ERoutes.Login]);
     }
 
     register(user: User) {

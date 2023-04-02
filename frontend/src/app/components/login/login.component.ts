@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
+import { ERoutes } from 'src/app/helpers/routes';
 import { AlertService } from 'src/app/services/alert/alert.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -47,19 +48,31 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.authService.login(this.f['username'].value, this.f['password'].value)
-        .pipe(first())
-        .subscribe({
-            next: () => {
-                // get return url from query parameters or default to home page
-                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                this.router.navigateByUrl(returnUrl);
-            },
-            error: error => {
-                this.alertService.error(error);
-                console.log(error);
+        .subscribe(() => {
                 this.loading = false;
-            }
-        });
+                console.log('navigating to dashboard');
+                this.router.navigate([ERoutes.Dashboard]);
+          },
+          (err) => {
+            this.alertService.error(err);
+            console.log(err);
+            this.loading = false;
+          }
+        );
+
+        //   {
+        //     next: () => {
+        //         // get return url from query parameters or default to home page
+        //         // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        //         console.log('navigating to dashboard');
+        //         this.router.navigate([ERoutes.Dashboard]);
+        //     },
+        //     error: error => {
+        //         this.alertService.error(error);
+        //         console.log(error);
+        //         this.loading = false;
+        //     }
+        // });
     // sessionStorage.setItem('isLoggedIn', 'true');
     // window.location.reload();
     // this.router.navigate(['/dashboard']);
