@@ -9,8 +9,19 @@ namespace backend.Controllers;
 [Route("[controller]")]
 public class TransactionController : ControllerBase
 {
+    [HttpGet("{id}")]
+    public ActionResult<List<Transaction>> GetUserTransactions(int id)
+    {
+        if (backend.Models.User.GetUserById == null)
+        {
+            return NotFound("User of that id was not found");
+        }
+
+        return Transaction.GetUserTransactionsByUserId(id);
+    }
+
     [HttpPost("sendmoney/{fromUserId}/{toUserId}/{amount}")]
-    public IActionResult TransferMoneyToOtherUser(int fromUserId, int toUserId, double amount)
+    public ActionResult<Transaction> TransferMoneyToOtherUser(int fromUserId, int toUserId, double amount, TransactionCategory category)
     {
         var firstUser = backend.Models.User.GetUserById(fromUserId);
 
@@ -36,62 +47,80 @@ public class TransactionController : ControllerBase
             return BadRequest("Amount money sent cannot negative");
         }
 
-        using (var context = new Database())
+        if ((Account.GetAccountBalanceById(fromUserId) - amount) < 0)
         {
-            var fromUser = context.Users.FirstOrDefault(u => u.Id == fromUserId);
-            var toUser = context.Users.FirstOrDefault(u => u.Id == toUserId);
-
-            if (fromUser == null || toUser == null)
-            {
-                return NotFound();
-            }
-
-            var fromUserAccount = context.Accounts.FirstOrDefault(a => a.UserId == fromUserId);
-            var toUserAccount = context.Accounts.FirstOrDefault(a => a.UserId == toUserId);
-
-            if (fromUserAccount == null || toUserAccount == null)
-            {
-                return BadRequest("Both users must have an account");
-            }
-
-            if (fromUserAccount.Balance < amount)
-            {
-                return BadRequest("Insufficient funds");
-            }
-
-            fromUserAccount.Balance -= amount;
-            toUserAccount.Balance += amount;
-
-            context.SaveChanges();
-
-            return Ok();
+            return BadRequest("Insufficient funds in account.");
         }
+
+       return Transaction.MakeTransfer(
+            fromUserId,
+            toUserId,
+            amount,
+            TransactionType.EXTERNAL,
+            category
+        );
     }
 
     [HttpPost("sendmoney/{fromAccountId}/{toAccountId}/{amount}")]
-    public IActionResult TransferMoneyToOtherAccount(int fromAccountId, int toAccountId, double amount)
+    public ActionResult<Transaction> TransferMoneyToOtherAccount(int fromAccountId, int toAccountId, double amount)
     {
-        using (var context = new Database())
+        var firstAccount = Account.GetAccountById(fromAccountId);
+
+        if (firstAccount == null)
         {
-            var fromAccount = context.Accounts.FirstOrDefault(a => a.Id == fromAccountId);
-            var toAccount = context.Accounts.FirstOrDefault(a => a.Id == toAccountId);
-
-            if (fromAccount == null || toAccount == null)
-            {
-                return NotFound();
-            }
-
-            if (fromAccount.Balance < amount)
-            {
-                return BadRequest("Insufficient funds");
-            }
-
-            fromAccount.Balance -= amount;
-            toAccount.Balance += amount;
-
-            context.SaveChanges();
-
-            return Ok();
+            return NotFound("First account was not found in the database");
         }
+
+        var secondAccount = Account.GetAccountById(toAccountId);
+
+        if (secondAccount == null)
+        {
+            return NotFound("Secnod accunt was not found in the database");
+        }
+
+        if (amount == 0)
+        {
+            return BadRequest("Amount money sent cannot be 0");
+        }
+
+        if (amount < 0)
+        {
+            return BadRequest("Amount money sent cannot negative");
+        }
+
+        if ((Account.GetAccountBalanceById(fromAccountId) - amount) < 0)
+        {
+            return BadRequest("Insufficient funds in account.");
+        }
+
+        return Transaction.MakeTransfer(
+             fromAccountId,
+             toAccountId,
+             amount,
+             TransactionType.INTERNAL,
+             null
+         );
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult<Transaction> Delete(int id)
+    {
+        if(Transaction.GetTransactionById(id) == null)
+        {
+            return NotFound("Account not found.");
+        }
+
+        return Transaction.DeleteTransactionById(id);
+    }
+
+    [HttpPut("{id}")]
+    public ActionResult<Transaction> Update(int id, [FromBody] Transaction value)
+    {
+        if (Transaction.GetTransactionById(id) == null)
+        {
+            return NotFound("Account not found.");
+        }
+
+        return Transaction.UpdateTransactionById(id, value);
     }
 }

@@ -8,6 +8,7 @@ public enum TransactionCategory
     BILLS,
     FOOD,
     ENTERTAINMENT,
+    TRANSFER,
     OTHER
 }
 
