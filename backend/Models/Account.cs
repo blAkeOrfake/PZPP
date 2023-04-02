@@ -37,6 +37,15 @@ public class Account
         }
     }
 
+    public static ActionResult<Account> GetGeneralAccountByUserId(int id)
+    {
+        using (var context = new Database())
+        {
+            var userAccounts = context.Accounts.Where(a => a.UserId == id);
+            return userAccounts.First(a => a.Type == AccountType.General);
+        }
+    }
+
     public static ActionResult<Account?> DeleteAccountById(int id)
     {
         using (var context = new Database())
@@ -50,6 +59,19 @@ public class Account
     }
 
     public static ActionResult<Account?> UpdateAccoutById(int id, Account newValue)
+    {
+        using (var context = new Database())
+        {
+            var account = context.Accounts.FirstOrDefault(a => a.Id == newValue.Id);
+            account = newValue;
+
+            context.Accounts.Update(account);
+            context.SaveChanges();
+            return account;
+        }
+    }
+
+    public static ActionResult<Account?> UpdateAccount(Account newValue)
     {
         using (var context = new Database())
         {
@@ -83,6 +105,14 @@ public class Account
         using (var context = new Database())
         {
             return context.Accounts.Where(a => a.UserId == id).ToList<Account>();
+        }
+    }
+
+    public static double GetAccountBalanceById(int id)
+    {
+        using (var context = new Database())
+        {
+            return GetAccountById(id).Balance;
         }
     }
 }
