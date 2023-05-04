@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Account } from 'src/app/models/accounts-model';
 import { AccountsService } from 'src/app/services/accounts.service';
 import { AddAccountDialogComponent } from '../dialogs/add-account-dialog/add-account-dialog.component';
