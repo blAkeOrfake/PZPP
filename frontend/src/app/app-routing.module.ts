@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AuthGuard } from './helpers/auth.guard';
+import { AtmsViewComponent } from './components/atms-view/atms-view.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'atms',
+    component: AtmsViewComponent
   },
   { 
     path: '**',

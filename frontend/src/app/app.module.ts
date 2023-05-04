@@ -23,6 +23,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { AtmsViewComponent } from './components/atms-view/atms-view.component';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     SettingsComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    AtmsViewComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [
     { 

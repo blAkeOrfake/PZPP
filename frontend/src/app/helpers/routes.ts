@@ -3,5 +3,6 @@ export enum ERoutes {
     AccountDetails = "account-details",
     Settings = "settings",
     Login = "login",
-    Register = "register"
+    Register = "register",
+    Atms = 'atms'
 }
