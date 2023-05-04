@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment';
 import { Account, IAccount } from '../models/accounts-model';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
 	providedIn: 'root'
 })

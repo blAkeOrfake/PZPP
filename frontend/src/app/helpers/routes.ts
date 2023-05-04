@@ -1,4 +1,7 @@
 export enum ERoutes {
     Dashboard = 'dashboard',
-    Login = "login"
+    AccountDetails = "account-details",
+    Settings = "settings",
+    Login = "login",
+    Register = "register"
 }
