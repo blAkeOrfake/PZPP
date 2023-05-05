@@ -47,7 +47,155 @@
         width: 200px;
         height: 150px;
     }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .account-info {
+        &__title {
+            font-size: 18px;
+            color: #212948;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        &__row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-left: 8px;
+            margin-bottom: 8px;
+
+            &--value {
+                color: #212948;
+                font-weight: 600;
+            }
+        }
+
+        &__columns {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 16px;
+        }
+    }
+
+    .widget-balance {
+        &--balance__total {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+
+            &--title {
+                font-size: 24px;
+                color: #212948;
+                font-weight: 500;
+                margin-bottom: 16px;
+            }
+
+            &--value {
+                color: #212948;
+                font-weight: 600;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .predefined-receivers {
+        &__title {
+            font-size: 18px;
+            color: #212948;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        &__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 0 4px;
+            margin-bottom: 4px;
+
+            &--content {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                &__name {
+                    font-size: 14px;
+                    color: #212948;
+                    font-weight: 500;
+                }
+            }
+
+            &--actions {
+                &__remove {
+                    border: 0;
+                    background: unset;
+                    color: #d03e3e;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: #f13838;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: #f5f5f5;
+                border-color: #f5f5f5;
+            }
+        }
+    }
+
+    .last-transactions {
+        &__title {
+            font-size: 18px;
+            color: #212948;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        &__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 0 4px;
+            margin-bottom: 4px;
+
+            &__name {
+                font-size: 16px;
+                color: #5aa71f;
+                font-weight: 500;
+            }
+
+            &__description {
+                font-size: 16px;
+                color: #212948;
+                font-weight: 500;
+            }
+
+            &:hover {
+                background-color: #f5f5f5;
+                border-color: #f5f5f5;
+            }
+        }
+    }
 }
+
 .row {
     display: flex;
     gap: 16px;

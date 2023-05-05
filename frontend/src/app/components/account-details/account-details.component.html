@@ -1,32 +1,124 @@
-<div class="account__name-tile">
-    <div class="account__name-tile__icon">
-        <span class="material-icons-outlined title-icon">account_circle</span>
-    </div>
-
-   <div class="account__name-tile__name">
-    {{ fullName }}
-   </div>
-</div>
-
-<div class="widgets">
-    <div class="ac-tile acccount-info">
-        Account info:
-
-    </div>
-    <div class="row">
-        <div class="ac-tile widgets-balance">
-            Balance widget:
-            <!-- sum of balance from all accounts and balance of each account -->
-            <!-- <div class="balance__total">
-                <div class="balance__total__title">Total balance</div>
-                <div class="balance__total__amount">£ 0.00</div> -->
+<div class="account" *ngIf="person">
+    <div class="account__name-tile">
+        <div class="account__name-tile__icon">
+            <span class="material-icons-outlined title-icon">account_circle</span>
         </div>
-        <div class="ac-tile predefined-receivers">
-            Predefined receivers:
-        </div>
+    
+       <div class="account__name-tile__name">
+        {{ fullName }}
+       </div>
     </div>
-
-    <div class="ac-tile last-transactions">
-        Last transactions:
+    
+    <div class="widgets">
+        <div class="ac-tile account-info">
+            <div class="account-info__columns">
+                <div class="account-info__columns-column">
+                    <h3 class="account-info__title">Account info</h3>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">First Name:</div>
+                        <div class="account-info__row--value">{{ person.firstName }}</div>
+                    </div>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">Last Name:</div>
+                        <div class="account-info__row--value">{{ person.lastName }}</div>
+                    </div>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">User Name:</div>
+                        <div class="account-info__row--value">{{ person.phoneNumber }}</div>
+                    </div>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">Phone Number:</div>
+                        <div class="account-info__row--value">{{ person.phoneNumber }}</div>
+                    </div>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">Country:</div>
+                        <div class="account-info__row--value">{{ person.country }}</div>
+                    </div>
+                </div>
+                <div class="account-info__columns-column">
+                    <h3 class="account-info__title">Address</h3>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">Address:</div>
+                        <div class="account-info__row--value">{{ person.address }}</div>
+                    </div>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">City:</div>
+                        <div class="account-info__row--value">{{ person.city }}</div>
+                    </div>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">Postal Code:</div>
+                        <div class="account-info__row--value">{{ person.postalCode }}</div>
+                    </div>
+                    <ng-container *ngIf="person.contactAddress || person.contactCity || person.contactPostalCode">
+                        <h3 class="account-info__title">Contact Address</h3>
+                        <div class="account-info__row">
+                            <div class="account-info__row--title">Address:</div>
+                            <div class="account-info__row--value">{{ person.contactAddress }}</div>
+                        </div>
+                        <div class="account-info__row">
+                            <div class="account-info__row--title">City:</div>
+                            <div class="account-info__row--value">{{ person.contactCity }}</div>
+                        </div>
+                        <div class="account-info__row">
+                            <div class="account-info__row--title">Postal Code:</div>
+                            <div class="account-info__row--value">{{ person.contactPostalCode }}</div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="person.taxAddress || person.taxCity || person.taxPostalCode">
+                        <h3 class="account-info__title">Tax Address</h3>
+                        <div class="account-info__row">
+                            <div class="account-info__row--title">Address:</div>
+                            <div class="account-info__row--value">{{ person.taxAddress }}</div>
+                        </div>
+                        <div class="account-info__row">
+                            <div class="account-info__row--title">City:</div>
+                            <div class="account-info__row--value">{{ person.taxCity }}</div>
+                        </div>
+                        <div class="account-info__row">
+                            <div class="account-info__row--title">Postal Code:</div>
+                            <div class="account-info__row--value">{{ person.taxPostalCode }}</div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="widgets__row">
+            <div class="ac-tile widget-balance">
+                <div class="widget-balance--balance__total">
+                    <div class="widget-balance--balance__total--title">Total balance</div>
+                    <div class="widget-balance--balance__total--value">£ 0.00</div>
+                </div>
+            </div>
+            <div class="ac-tile predefined-receivers">
+                <h3 class="predefined-receivers__title">Predefined receivers</h3>
+                <div class="predefined-receivers__item">
+                    <div class="predefined-receivers__item--content">
+                        <div class="predefined-receivers__item--content__icon">
+                            <span class="material-icons-outlined title-icon">perm_identity</span>
+                        </div>
+                        <span class="predefined-receivers__item--content__name">John Doe</span>
+                    </div>
+                    <div class="predefined-receivers__item--actions">
+                        <button class="predefined-receivers__item--actions__remove">X</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="ac-tile last-transactions">
+            <h3 class="last-transactions__title">Last transactions</h3>
+            <div class="last-transactions__item">
+                    <div class="last-transactions__item__icon">
+                        <span class="material-icons-outlined title-icon">swap_horiz</span>
+                    </div>
+                    <span class="last-transactions__item__name">John Doe</span>
+                    <div class="last-transactions__item__icon">
+                        <span class="material-icons-outlined title-icon">arrow_right_alt</span>
+                    </div>
+                    <span class="last-transactions__item__name">Jane Doe</span>
+                    <span class="last-transactions__item__description">for rough sex</span>
+                    <div class="last-transactions__item__value">£ 0.00</div>
+            </div>
+        </div>
     </div>
 </div>
