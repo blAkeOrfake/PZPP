@@ -1,6 +1,23 @@
 <p>atms-view works!</p>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ6xgAZ9mmC-b1jv0u94f1PeEU-WQZe7M"></script>
 
 <div id="map-container" class="map-wrapper">
-    <google-map></google-map>
+    <google-map
+        #map
+        height="500px"
+        width="100%"
+        [zoom]="zoom"
+        [center]="center"
+        [options]="options"
+    >
+        <map-marker
+            *ngFor="let marker of markers"
+            [position]="marker.position"
+            [label]="marker.label"
+            [title]="marker.title"
+            [options]="marker.options"
+        >
+        </map-marker>
+        <!-- <google-map-marker *ngFor="let atm of atms" [position]="atm.geometry.location"></google-map-marker> -->
+
+    </google-map>
 </div>
