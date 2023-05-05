@@ -11,11 +11,11 @@ import { SharedModule } from './components/shared/shared.module';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { LoginComponent } from './components/login/login.component';
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,8 +23,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-import { AtmsViewComponent } from './components/atms-view/atms-view.component';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PaymentsComponent } from './components/payments/payments.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    AtmsViewComponent
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    GoogleMapsModule
+    MatCheckboxModule
   ],
   providers: [
     { 

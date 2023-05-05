@@ -22,10 +22,32 @@ export class User {
 export interface IPerson extends IUser {
     firstName: string;
     lastName: string;
+    phoneNumber?: string;
+    address?: string;
+    city?: string;
+    postalCode?: string;
+    country?: string;
+    contactAddress?: string;
+    contactCity?: string;
+    contactPostalCode?: string;
+    taxAddress?: string;
+    taxCity?: string;
+    taxPostalCode?: string;
 }
 export class Person extends User implements IPerson {
     firstName: string;
     lastName: string;
+    phoneNumber?: string;
+    address?: string;
+    city?: string;
+    postalCode?: string;
+    country?: string;
+    contactAddress?: string;
+    contactCity?: string;
+    contactPostalCode?: string;
+    taxAddress?: string;
+    taxCity?: string;
+    taxPostalCode?: string;
 
     constructor(initialValues: IPerson) {
         super(initialValues);

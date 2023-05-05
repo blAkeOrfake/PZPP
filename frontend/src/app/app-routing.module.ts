@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AuthGuard } from './helpers/auth.guard';
-import { AtmsViewComponent } from './components/atms-view/atms-view.component';
+import { PaymentsComponent } from './components/payments/payments.component';
 
 const routes: Routes = [
   {
@@ -38,8 +38,8 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'atms',
-    component: AtmsViewComponent
+    path:'payments',
+    component: PaymentsComponent,
   },
   { 
     path: '**',
