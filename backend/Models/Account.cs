@@ -37,7 +37,7 @@ public class Account
         }
     }
 
-    public static ActionResult<Account> GetGeneralAccountByUserId(int id)
+    public static Account GetGeneralAccountByUserId(int id)
     {
         using (var context = new Database())
         {
@@ -65,6 +65,7 @@ public class Account
             var account = context.Accounts.FirstOrDefault(a => a.Id == newValue.Id);
             account = newValue;
 
+            context.ChangeTracker.Clear();
             context.Accounts.Update(account);
             context.SaveChanges();
             return account;
@@ -78,6 +79,7 @@ public class Account
             var account = context.Accounts.FirstOrDefault(a => a.Id == newValue.Id);
             account = newValue;
 
+            context.ChangeTracker.Clear();
             context.Accounts.Update(account);
             context.SaveChanges();
             return account;
@@ -112,7 +114,7 @@ public class Account
     {
         using (var context = new Database())
         {
-            return GetAccountById(id).Balance;
+            return GetGeneralAccountByUserId(id).Balance;
         }
     }
 }
