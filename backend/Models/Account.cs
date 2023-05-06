@@ -37,7 +37,7 @@ public class Account
         }
     }
 
-    public static Account GetGeneralAccountByUserId(int id)
+    public static Account GetGeneralAccountByUserId(int? id)
     {
         using (var context = new Database())
         {

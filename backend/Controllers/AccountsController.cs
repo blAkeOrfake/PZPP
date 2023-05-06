@@ -68,6 +68,13 @@ public class AccountsController : Controller
             return Conflict("Account already in the database.");
         }
 
+        var existingGeneralAccount = Account.GetGeneralAccountByUserId(account.UserId);
+
+        if(existingGeneralAccount != null)
+        {
+            return Conflict("User already has a general account, change type of account that you want to add.");
+        }
+
         Account.AddAccount(account);
 
         return Ok();
