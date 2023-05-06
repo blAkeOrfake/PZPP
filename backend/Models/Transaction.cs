@@ -32,6 +32,7 @@ public class Transaction
     public int fromId { get; set; }
     public int toId { get; set; }
     public double Amount { get; set; }
+    public DateTime? Date { get; set; }
 
     public static List<Transaction> GetAllTransactions()
     {

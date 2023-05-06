@@ -58,6 +58,8 @@ public class TransactionController : ControllerBase
             return BadRequest("Insufficient funds in account.");
         }
 
+        transaction.Date = DateTime.Now;
+
         return Transaction.MakeTransfer(transaction);
     }
 
