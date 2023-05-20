@@ -6,106 +6,67 @@ using backend.Models;
 namespace backend.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class TransactionController : ControllerBase
 {
-    [HttpGet("{id}")]
-    public ActionResult<List<Transaction>> GetUserTransactions(int id)
+    [HttpGet]
+    public ActionResult<List<Transaction>> GetAllTransactions()
+    {
+        return Transaction.GetAllTransactions();
+    }
+
+    [HttpGet("{userId}")]
+    public ActionResult<List<Transaction>> GetUserTransactions(int userId)
     {
         if (backend.Models.User.GetUserById == null)
         {
             return NotFound("User of that id was not found");
         }
 
-        return Transaction.GetUserTransactionsByUserId(id);
+        return Transaction.GetUserTransactionsByUserId(userId);
     }
 
-    [HttpPost("sendmoney/{fromUserId}/{toUserId}/{amount}")]
-    public ActionResult<Transaction> TransferMoneyToOtherUser(int fromUserId, int toUserId, double amount, TransactionCategory category)
+    [HttpPost("send")]
+    public ActionResult<Transaction> SendTransaction([FromBody] Transaction transaction)
     {
-        var firstUser = backend.Models.User.GetUserById(fromUserId);
+        var firstUser = backend.Models.User.GetUserById(transaction.fromId);
 
         if (firstUser == null)
         {
             return NotFound("First user was not found in the database");
         }
 
-        var secondUser = backend.Models.User.GetUserById(toUserId);
+        var secondUser = backend.Models.User.GetUserById(transaction.toId);
 
         if (secondUser == null)
         {
             return NotFound("First user was not found in the database");
         }
 
-        if (amount == 0)
+        if (transaction.Amount == 0)
         {
             return BadRequest("Amount money sent cannot be 0");
         }
 
-        if (amount < 0)
+        if (transaction.Amount < 0)
         {
             return BadRequest("Amount money sent cannot negative");
         }
 
-        if ((Account.GetAccountBalanceById(fromUserId) - amount) < 0)
+        if ((Account.GetAccountBalanceById(transaction.fromId) - transaction.Amount) < 0)
         {
             return BadRequest("Insufficient funds in account.");
         }
 
-       return Transaction.MakeTransfer(
-            fromUserId,
-            toUserId,
-            amount,
-            TransactionType.EXTERNAL,
-            category
-        );
+        transaction.Date = DateTime.Now;
+
+        return Transaction.MakeTransfer(transaction);
     }
 
-    [HttpPost("sendmoney/{fromAccountId}/{toAccountId}/{amount}")]
-    public ActionResult<Transaction> TransferMoneyToOtherAccount(int fromAccountId, int toAccountId, double amount)
-    {
-        var firstAccount = Account.GetAccountById(fromAccountId);
-
-        if (firstAccount == null)
-        {
-            return NotFound("First account was not found in the database");
-        }
-
-        var secondAccount = Account.GetAccountById(toAccountId);
-
-        if (secondAccount == null)
-        {
-            return NotFound("Secnod accunt was not found in the database");
-        }
-
-        if (amount == 0)
-        {
-            return BadRequest("Amount money sent cannot be 0");
-        }
-
-        if (amount < 0)
-        {
-            return BadRequest("Amount money sent cannot negative");
-        }
-
-        if ((Account.GetAccountBalanceById(fromAccountId) - amount) < 0)
-        {
-            return BadRequest("Insufficient funds in account.");
-        }
-
-        return Transaction.MakeTransfer(
-             fromAccountId,
-             toAccountId,
-             amount,
-             TransactionType.INTERNAL,
-             null
-         );
-    }
-
-    [HttpDelete("{id}")]
+    [HttpDelete("{transactionId}")]
     public ActionResult<Transaction> Delete(int id)
     {
-        if(Transaction.GetTransactionById(id) == null)
+        if (Transaction.GetTransactionById(id) == null)
         {
             return NotFound("Account not found.");
         }
@@ -113,7 +74,7 @@ public class TransactionController : ControllerBase
         return Transaction.DeleteTransactionById(id);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{transactionId}")]
     public ActionResult<Transaction> Update(int id, [FromBody] Transaction value)
     {
         if (Transaction.GetTransactionById(id) == null)

@@ -13,27 +13,28 @@ public class Transaction
         int? id,
         TransactionType type,
         TransactionCategory? category,
-        int fromAccountId,
-        int toAccountId,
+        int fromId,
+        int toId,
         double amount
     )
     {
         this.Id = id;
         this.Type = type;
         this.Category = category;
-        this.FromAccountId = fromAccountId;
-        this.ToAccountId = toAccountId;
+        this.fromId = fromId;
+        this.toId = toId;
         this.Amount = amount;
     }
 
     public int? Id { get; set; }
     public TransactionType Type { get; set; }
     public TransactionCategory? Category { get; set; }
-    public int FromAccountId { get; set; }
-    public int ToAccountId { get; set; }
+    public int fromId { get; set; }
+    public int toId { get; set; }
     public double Amount { get; set; }
+    public DateTime? Date { get; set; }
 
-    public static List<Transaction> GetAllTransactinos()
+    public static List<Transaction> GetAllTransactions()
     {
         using (var context = new Database())
         {
@@ -47,7 +48,7 @@ public class Transaction
         {
             var accounts = Account.GetUserAccountsByUserId(id);
 
-            return GetAllTransactinos().Where(t => t.FromAccountId == id || t.ToAccountId == id).ToList();
+            return GetAllTransactions().Where(t => t.fromId == id || t.toId == id).ToList();
         }
     }
 
@@ -59,48 +60,43 @@ public class Transaction
         }
     }
 
-    public static ActionResult<Transaction> MakeTransfer(
-        int fromAccountId,
-        int toAccountId,
-        double amount,
-        TransactionType type,
-        TransactionCategory? category
-    )
+    public static ActionResult<Transaction> MakeTransfer(Transaction transaction)
     {
         using (var context = new Database())
         {
-            var firstAccount = Account.GetAccountById(fromAccountId);
-            firstAccount.Balance -= amount;
-            Account.UpdateAccount(firstAccount);
-
-            var secondAccount = Account.GetAccountById(toAccountId);
-            secondAccount.Balance += amount;
-            Account.UpdateAccount(secondAccount);
-
-            var newTransaction = new Transaction
+            if (transaction.Type == TransactionType.EXTERNAL)
             {
-                Type = type,
-                FromAccountId = fromAccountId,
-                ToAccountId = toAccountId,
-                Amount = amount
-            };
+                var secondAccount = Account.GetGeneralAccountByUserId(transaction.toId);
+                secondAccount.Balance += transaction.Amount;
+                Account.UpdateAccount(secondAccount);
 
-            if (category != null)
+                var firstAccount = Account.GetGeneralAccountByUserId(transaction.fromId);
+                firstAccount.Balance -= transaction.Amount;
+                Account.UpdateAccount(firstAccount);
+            }
+            else
             {
-                newTransaction.Category = category;
+                var firstAccount = Account.GetAccountById(transaction.fromId);
+                firstAccount.Balance -= transaction.Amount;
+                Account.UpdateAccount(firstAccount);
+
+                var secondAccount = Account.GetAccountById(transaction.toId);
+                secondAccount.Balance += transaction.Amount;
+                Account.UpdateAccount(secondAccount);
             }
 
-            AddTransaction(newTransaction);
+            AddTransaction(transaction);
 
-            return newTransaction;
+            return transaction;
         }
     }
 
-    public static void AddTransaction(Transaction transaction)
+    private static void AddTransaction(Transaction transaction)
     {
         using (var context = new Database())
         {
             context.Transactions.Add(transaction);
+            context.SaveChanges();
         }
     }
 

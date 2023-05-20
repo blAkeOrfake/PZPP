@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace backend.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20230506092001_TransactionChangeNames")]
+    partial class TransactionChangeNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
@@ -51,9 +54,6 @@ namespace backend.Migrations
 
                     b.Property<int?>("Category")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime?>("Date")
-                        .HasColumnType("TEXT");
 
                     b.Property<int>("Type")
                         .HasColumnType("INTEGER");
