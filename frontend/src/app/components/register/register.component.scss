@@ -1,5 +1,13 @@
 .register-container {
     margin: auto;
+
+    &__footer {
+        padding: .5em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
 }
 
 

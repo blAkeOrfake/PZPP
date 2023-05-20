@@ -27,10 +27,12 @@
             </mat-error>
             <mat-divider></mat-divider>
             <mat-card-footer>
-                <button [disabled]="loading" mat-raised-button color="primary" type="submit" (click)="onClick()">
-                    Login
-                </button>
-                <a routerLink="/register" class="btn btn-link">Register</a>
+                <div class="login-container__footer">
+                    <button [disabled]="loading" mat-raised-button color="primary" type="submit" (click)="onClick()">
+                        Login
+                    </button>
+                    <a routerLink="/register" class="btn btn-link">Register</a>
+                </div>
             </mat-card-footer>
         </mat-card>
     </div>
