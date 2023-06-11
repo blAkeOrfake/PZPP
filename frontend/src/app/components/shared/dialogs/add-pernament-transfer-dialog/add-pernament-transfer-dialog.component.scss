@@ -1,0 +1,57 @@
+.transfer-dialog {
+    &__header {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    &__content {
+
+    }
+
+    &__footer {
+        border-top: 1px solid #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+
+        &--submit {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-color: #495CDA;
+            border-radius: 8px;
+            border: 1px solid #495CDA;
+    
+            cursor: pointer;
+    
+            &:hover {
+                background-color: #495cdaba;
+                transition: background-color 0.1s ease-in-out;
+                border-color: #495cdaba;
+                transition: color 0.1s ease-in-out;
+            }
+        }
+
+        &--cancel {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            font-size: 16px;
+            color: #495CDA;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            border: 1px solid transparent;
+    
+            cursor: pointer;
+    
+            &:hover {
+                background-color: #e9ecfe;
+                transition: background-color 0.1s ease-in-out;
+                border-color: #e9ecfe;
+                transition: color 0.1s ease-in-out;
+            }
+        }
+    }
+}

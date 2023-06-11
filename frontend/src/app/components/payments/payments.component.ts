@@ -17,7 +17,12 @@ export class PaymentsComponent implements OnInit {
   }
 
   addPernamentPaymentModal(): void {
-    this.dialog.open(AddPernamentTransferDialogComponent)
+    const data = {
+      width: '600px'
+    }
+    this.dialog.open(AddPernamentTransferDialogComponent,
+      data
+    )
       .afterClosed()
       .subscribe((result: IAddPernamentTransferDialogResult) => {
         if (result) {
