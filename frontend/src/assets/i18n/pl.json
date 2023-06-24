@@ -1,0 +1,24 @@
+{
+    "dialog": {
+        "title": {
+            "addNewPernamentTransfer": "Dodaj nowy cykliczny przelew"
+        }
+    },
+    "languages": {
+        "en": "EN",
+        "pl": "PL"
+    },
+    "sidepanel": {
+        "navigation": {
+            "dashboard": "Dashboard",
+            "payments": "Płatności",
+            "transactions": "Transakcje",
+            "accounts": "Konta",
+            "cards": "Karty",
+            "products": "Produkty",
+            "settings": "Ustawienia",
+            "logout": "Wyloguj"
+        }
+    }
+  }
+  

@@ -41,7 +41,11 @@ export class AuthService {
     }
 
     register(user: User) {
-        return this.http.post(`${environment.apiUrl}/User/register`, user);
+        return this.http.post(`${environment.apiUrl}/User/register`, user)
+            .pipe(map(response => {
+                return response;
+            }
+        ));
     }
 
     // update(id: string, params: any) {

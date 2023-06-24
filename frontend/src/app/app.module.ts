@@ -19,12 +19,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PaymentsComponent } from './components/payments/payments.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
+import { TranslatePipe } from './components/shared/pipes/translate.pipe';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -37,7 +45,9 @@ import { PaymentsComponent } from './components/payments/payments.component';
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    LanguageSwitchComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
@@ -54,7 +64,15 @@ import { PaymentsComponent } from './components/payments/payments.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en', // Język domyślny
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     { 

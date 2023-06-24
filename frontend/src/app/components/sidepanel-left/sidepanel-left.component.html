@@ -11,35 +11,36 @@
         </div>
         <div [routerLink]="'dashboard'" [routerLinkActive]="['nav-item--is-active']" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">dashboard</span>
-            Dashboard
+            {{ 'sidepanel.navigation.dashboard' | translate }}
         </div>
         <div [routerLink]="'payments'" [routerLinkActive]="['nav-item--is-active']" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">receipt_long</span>
-            Payments
+            {{ 'sidepanel.navigation.payments' | translate }}
         </div>
         <div [routerLink]="" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">swap_horiz</span>
-            Transactions
+            {{ 'sidepanel.navigation.transactions' | translate }}
         </div>
         <div [routerLink]="" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">groups</span>
-            Accounts
+            {{ 'sidepanel.navigation.accounts' | translate }}
         </div>
         <div [routerLink]="" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">credit_card</span>
-            Cards
+            {{ 'sidepanel.navigation.cards' | translate }}
         </div>
         <div [routerLink]="" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">payments</span>
-            Products
+            {{ 'sidepanel.navigation.products' | translate }}
         </div>
         <div [routerLink]="'settings'" [routerLinkActive]="['nav-item--is-active']" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">settings</span>
-            Settings
+            {{ 'sidepanel.navigation.settings' | translate }}
         </div>
         <div (click)="logOut()" class="nav-item nav-item--last">
             <span class="material-icons-outlined nav-item--icon">logout</span>
-            Log out
+            {{ 'sidepanel.navigation.logout' | translate }}
         </div>
     </div>
+    <app-language-switch></app-language-switch>
 </div>
