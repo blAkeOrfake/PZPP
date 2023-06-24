@@ -12,8 +12,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  title: string = 'Login';
-  errorMessage: string = '';
+  showErrorMessage: boolean = false;
   form!: FormGroup;
   loading = false;
   submitted = false;
@@ -39,7 +38,7 @@ export class LoginComponent implements OnInit {
   onClick() {
     this.submitted = true;
 
-    this.errorMessage = 'Invalid username or password';
+    this.showErrorMessage = true;
 
     // reset alerts on submit
     // this.alertService.clear();
@@ -50,7 +49,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.f['username'].value, this.f['password'].value)
         .subscribe(() => {
                 this.loading = false;
-                console.log('navigating to dashboard');
                 this.router.navigate([ERoutes.Dashboard]);
           },
           (err) => {

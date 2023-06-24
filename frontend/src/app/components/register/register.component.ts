@@ -13,8 +13,7 @@ interface IShow {
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  title: string = 'Register';
-  errorMessage: string = '';
+  showErrorMessage: boolean = false;
   form!: FormGroup;
   loading = false;
   submitted = false;
@@ -68,7 +67,7 @@ export class RegisterComponent implements OnInit {
     this.loading = true;
 
     if (this.f['password'].value !== this.f['confirm_password'].value) {
-      this.errorMessage = 'Passwords do not match';
+      this.showErrorMessage = true;
       this.loading = false;
       return;
     }
@@ -79,7 +78,6 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       }, (err) => {
         console.log(err);
-        this.errorMessage = err.error.message;
         this.loading = false;
       });
 }

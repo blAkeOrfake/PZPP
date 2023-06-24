@@ -2,36 +2,36 @@
     <div class="login-container">
         <mat-card>
             <mat-card-header>
-                <mat-card-title>{{ title }}</mat-card-title>
+                <mat-card-title>{{ 'loginForm.label' | translate }}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <form [formGroup]="form" class="loginForm">
                     <mat-form-field>
-                        <mat-label>Username</mat-label>
+                        <mat-label>{{ 'account.username' | translate }}</mat-label>
                         <input type="text" formControlName="username" matInput />
                         <mat-error *ngIf="submitted && f['username'].errors">
-                            Username is required
+                            {{ 'formErrors.usernameIsRequired' | translate }}
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-label>Password</mat-label>
+                        <mat-label>{{ 'account.password' | translate }}</mat-label>
                         <input type="password" formControlName="password" matInput />
                         <mat-error *ngIf="submitted && f['password'].errors">
-                            Password is required
+                            {{ 'formErrors.passwordIsRequired' | translate }}
                         </mat-error>
                     </mat-form-field>
                 </form>
             </mat-card-content>
-            <mat-error>
-                {{ errorMessage }}
+            <mat-error *ngIf="showErrorMessage">
+                {{ 'formErrors.invalidUsernameOrPassword' | translate }}
             </mat-error>
             <mat-divider></mat-divider>
             <mat-card-footer>
                 <div class="login-container__footer">
                     <button [disabled]="loading" mat-raised-button color="primary" type="submit" (click)="onClick()">
-                        Login
+                        {{ 'common.login' | translate }}
                     </button>
-                    <a routerLink="/register" class="btn btn-link">Register</a>
+                    <a routerLink="/register" class="btn btn-link">{{ 'common.register' | translate }}</a>
                 </div>
             </mat-card-footer>
         </mat-card>
@@ -42,7 +42,7 @@
     <div class="loading">
         <div>
             <mat-spinner></mat-spinner>
-            <span class="mt-2">Loading...</span>
+            <span class="mt-2">{{ 'common.loading' | translate }}</span>
         </div>
     </div>
 </ng-container>

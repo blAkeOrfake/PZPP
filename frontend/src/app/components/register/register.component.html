@@ -2,154 +2,154 @@
     <div class="register-container">
         <mat-card>
             <mat-card-header>
-                <mat-card-title>{{ title }}</mat-card-title>
+                <mat-card-title>{{ 'registerForm.label' | translate }}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <form [formGroup]="form" class="registerForm">
                     <div class="registerForm--columns">
                         <div class="registerForm--columns__column">
-                            <h4>User details</h4>
+                            <h4>{{ 'registerForm.userDetails' | translate }}</h4>
                             <mat-form-field>
-                                <mat-label>Username</mat-label>
+                                <mat-label>{{ 'account.username' | translate }}</mat-label>
                                 <input type="text" formControlName="username" matInput />
                                 <mat-error *ngIf="submitted && f['username'].errors">
-                                    Username is required
+                                    {{ 'formErrors.usernameIsRequired' | translate }}
                                 </mat-error>
                             </mat-form-field>
                             <div class="registerForm--columns__row">
                                 <mat-form-field>
-                                    <mat-label>FirstName</mat-label>
+                                    <mat-label>{{ 'account.firstName' | translate }}</mat-label>
                                     <input type="text" formControlName="firstname" matInput />
                                     <mat-error *ngIf="submitted && f['firstname'].errors">
-                                        Firstname is required
+                                        {{ 'formErrors.firstNameIsRequired' | translate}}
                                     </mat-error>
                                 </mat-form-field>
                                 <mat-form-field>
-                                    <mat-label>Lastname</mat-label>
+                                    <mat-label>{{ 'account.lastName' | translate }}</mat-label>
                                     <input type="text" formControlName="lastname" matInput />
                                     <mat-error *ngIf="submitted && f['lastname'].errors">
-                                        Lastname is required
+                                        {{ 'formErrors.lastNameIsRequired' | translate }}
                                     </mat-error>
                                 </mat-form-field>
                             </div>
                             <mat-form-field>
-                                <mat-label>Phone Number</mat-label>
+                                <mat-label>{{ 'account.phoneNumber' | translate }}</mat-label>
                                 <input type="text" formControlName="phoneNumber" matInput />
                             </mat-form-field>
                             <div class="registerForm--columns__row">
                                 <mat-form-field>
-                                    <mat-label>Password</mat-label>
+                                    <mat-label>{{ 'account.password' | translate }}</mat-label>
                                     <input type="password" formControlName="password" matInput />
                                     <mat-error *ngIf="submitted && f['password'].errors">
-                                        Password is required
+                                        {{ 'formErrors.passwordIsRequired' | translate }}
                                     </mat-error>
                                 </mat-form-field>
                                 <mat-form-field>
-                                    <mat-label>Confirm Password</mat-label>
+                                    <mat-label>{{ 'registerForm.confirmPassword' | translate }}</mat-label>
                                     <input type="password" formControlName="confirm_password" matInput />
                                     <mat-error *ngIf="submitted && f['confirm_password'].errors">
-                                        Confirm Password is required
+                                        {{ 'formErrors.confirmPasswordIsRequired' | translate }}
                                     </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
                        <div class="registerForm--columns__column">
-                            <h4>Home Adress</h4>
+                            <h4>{{ 'registerForm.contactAddress' | translate }}</h4>
                             <mat-form-field>
-                                <mat-label>Address</mat-label>
+                                <mat-label>{{ 'account.address' | translate }}</mat-label>
                                 <input type="text" formControlName="address" matInput />
                                 <mat-error *ngIf="submitted && f['address'].errors">
-                                    Address is required
+                                    {{ 'formErrors.addressIsRequired' | translate}}
                                 </mat-error>
                             </mat-form-field>
                             <div class="registerForm--columns__row">
                                 <mat-form-field>
-                                    <mat-label>Postal Code</mat-label>
+                                    <mat-label>{{ 'account.postalCode' | translate }}</mat-label>
                                     <input type="text" formControlName="postalCode" matInput />
                                     <mat-error *ngIf="submitted && f['postalCode'].errors">
-                                        Address is required
+                                        {{ 'formErrors.postalCodeIsRequired' | translate }}
                                     </mat-error>
                                 </mat-form-field>
                                 <mat-form-field>
-                                    <mat-label>City</mat-label>
+                                    <mat-label>{{ 'account.city' | translate }}</mat-label>
                                     <input type="text" formControlName="city" matInput />
                                     <mat-error *ngIf="submitted && f['city'].errors">
-                                        city is required
+                                        {{ 'formErrors.cityIsRequired' | translate }}
                                     </mat-error>
                                 </mat-form-field>
                             </div>
                             <mat-form-field>
-                                <mat-label>Country</mat-label>
+                                <mat-label>{{ 'account.country' | translate }}</mat-label>
                                 <input type="text" formControlName="country" matInput />
                                 <mat-error *ngIf="submitted && f['country'].errors">
-                                    Country is required
+                                    {{ 'formErrors.countryIsRequired' | translate }}
                                 </mat-error>
                             </mat-form-field>
                                 <mat-checkbox
-                                    aria-label="My contact address is different from my home address"
+                                    [aria-label]="'registerForm.myContactAddressIsDifferentFromMyContactAddress' | translate "
                                     (click)="onClickShowForm('contact')"
                                     color="primary"
                                 >
-                                    My contact address is different from my home address
+                                    {{ 'registerForm.myContactAddressIsDifferentFromMyContactAddress' | translate }}
                                 </mat-checkbox>
 
                                 <mat-checkbox
-                                    aria-label="My contact address is different from my home address"
+                                    [aria-label]="'registerForm.myTaxAddressIsDifferentFromMyContactAddress' | translate"
                                     (click)="onClickShowForm('tax')"
                                     color="primary"
                                 >
-                                    My tax address is different from my home address
+                                    {{ 'registerForm.myTaxAddressIsDifferentFromMyContactAddress' | translate }}
                                 </mat-checkbox>
 
                             <ng-container *ngIf="showForm('contact')">
-                                <h4>Home Adress</h4>
+                                <h4>{{ 'registerForm.homeAddress' | translate }}</h4>
                                 <mat-form-field>
-                                    <mat-label>Address</mat-label>
+                                    <mat-label>{{ 'account.address' | translate }}</mat-label>
                                     <input type="text" formControlName="contactAddress" matInput />
                                     <mat-error *ngIf="submitted && f['contactAddress'].errors">
-                                        Address is required
+                                        {{ 'formErrors.addressIsRequired' | translate}}
                                     </mat-error>
                                 </mat-form-field>
                                 <div class="registerForm--columns__row">
                                     <mat-form-field>
-                                        <mat-label>Postal Code</mat-label>
+                                        <mat-label>{{ 'account.postalCode' | translate }}</mat-label>
                                         <input type="text" formControlName="contactPostalCode" matInput />
                                         <mat-error *ngIf="submitted && f['contactPostalCode'].errors">
-                                            Address is required
+                                            {{ 'formErrors.postalCodeIsRequired' | translate }}
                                         </mat-error>
                                     </mat-form-field>
                                     <mat-form-field>
-                                        <mat-label>City</mat-label>
+                                        <mat-label>{{ 'account.city' | translate }}</mat-label>
                                         <input type="text" formControlName="contactCity" matInput />
                                         <mat-error *ngIf="submitted && f['contactCity'].errors">
-                                            city is required
+                                            {{ 'formErrors.cityIsRequired' | translate }}
                                         </mat-error>
                                     </mat-form-field>
                                 </div>
                             </ng-container>
 
                             <ng-container *ngIf="showForm('tax')">
-                                <h4>Tax Adress</h4>
+                                <h4>{{ 'registerForm.taxAddress' | translate }}</h4>
                                 <mat-form-field>
-                                    <mat-label>Address</mat-label>
+                                    <mat-label>{{ 'account.address' | translate }}</mat-label>
                                     <input type="text" formControlName="taxAddress" matInput />
                                     <mat-error *ngIf="submitted && f['taxAddress'].errors">
-                                        Address is required
+                                        {{ 'formErrors.addressIsRequired' | translate}}
                                     </mat-error>
                                 </mat-form-field>
                                 <div class="registerForm--columns__row">
                                     <mat-form-field>
-                                        <mat-label>Postal Code</mat-label>
+                                        <mat-label>{{ 'account.postalCode' | translate }}</mat-label>
                                         <input type="text" formControlName="taxPostalCode" matInput />
                                         <mat-error *ngIf="submitted && f['taxPostalCode'].errors">
-                                            Address is required
+                                            {{ 'formErrors.postalCodeIsRequired' | translate }}
                                         </mat-error>
                                     </mat-form-field>
                                     <mat-form-field>
-                                        <mat-label>City</mat-label>
+                                        <mat-label>{{ 'account.city' | translate }}</mat-label>
                                         <input type="text" formControlName="taxCity" matInput />
                                         <mat-error *ngIf="submitted && f['taxCity'].errors">
-                                            city is required
+                                            {{ 'formErrors.cityIsRequired' | translate }}
                                         </mat-error>
                                     </mat-form-field>
                                 </div>
@@ -158,16 +158,16 @@
                     </div>
                 </form>
             </mat-card-content>
-            <mat-error>
-                {{ errorMessage }}
+            <mat-error *ngIf="showErrorMessage">
+                {{ 'formErrors.passwordsDoNotMatch' | translate }}
             </mat-error>
             <mat-divider></mat-divider>
             <mat-card-footer>
                 <div class="register-container__footer">
                     <button [disabled]="loading" mat-raised-button color="primary" type="submit" (click)="onClick()">
-                        Register
+                        {{ 'common.register' | translate }}
                     </button>
-                    <a routerLink="/login" class="btn btn-link">Login</a>
+                    <a routerLink="/login" class="btn btn-link">{{ 'common.login' | translate }}</a>
                 </div>
             </mat-card-footer>
         </mat-card>
@@ -178,7 +178,7 @@
     <div class="loading">
         <div>
             <mat-spinner></mat-spinner>
-            <span class="mt-2">Loading...</span>
+            <span class="mt-2">{{ 'common.loading' | translate }}</span>
         </div>
     </div>
 </ng-container>

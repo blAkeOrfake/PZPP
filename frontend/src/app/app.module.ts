@@ -50,6 +50,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslatePipe
   ],
   imports: [
+    TranslateModule.forRoot({
+      defaultLanguage: 'en', // Język domyślny
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -64,15 +72,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCheckboxModule,
-    TranslateModule.forRoot({
-      defaultLanguage: 'en', // Język domyślny
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    MatCheckboxModule
   ],
   providers: [
     { 
