@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,6 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./language-switch.component.scss']
 })
 export class LanguageSwitchComponent {
+  langForm = new FormGroup({
+    selectedLanguage: new FormControl()
+  });
 
   constructor(
     private translateService: TranslateService
@@ -16,10 +20,17 @@ export class LanguageSwitchComponent {
     return localStorage.getItem('language');
   }
 
+  ngOnInit(): void {
+    this.langForm.controls.selectedLanguage.setValue(
+      localStorage.getItem('language') ?
+        localStorage.getItem('language') as string :
+        'en'
+    );
+  }
+
   setLanguage(language: string) {
     localStorage.setItem('language', language);
     this.translateService.use(language);
-    window.location.reload();
   }
 
 }

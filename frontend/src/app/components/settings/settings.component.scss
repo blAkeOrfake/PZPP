@@ -1,0 +1,17 @@
+@import 'src/variables';
+
+.settings {
+    &__header {
+        padding: 16px 16px 42px 16px;
+
+        &--title {
+            font-size: 22px;
+            color: $font-color;
+            font-weight: 500;
+        }
+    }
+
+    &__content {
+        padding: 0 16px 16px 16px;
+    }
+}

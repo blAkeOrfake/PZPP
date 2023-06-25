@@ -44,6 +44,14 @@
         "frequency": "Częstotliwość",
         "nextPaymentDate": "Data następnego przelewu"
     },
+    "settings": {
+        "label": "Ustawienia",
+        "language": "Język",
+        "languageDescription": "Wybierz język aplikacji",
+        "theme": "Motyw",
+        "dark": "Ciemny",
+        "light": "Jasny"
+    },
     "languages": {
         "en": "EN",
         "pl": "PL"

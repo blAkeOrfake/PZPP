@@ -1,21 +1,26 @@
 @import 'src/variables';
 
 .language-selector {
-    display: flex;
-    gap: 2px;
+    background-color: #EBEBF4;
+    padding: 16px;
+    border: 1px solid #EBEBF4;
+    border-radius: 8px;
 
-    &__separator {
-        color: #9CA1B4;
+    &__header {
+        &--title {
+            font-size: 18px;
+            color: $font-color;
+            font-weight: 500;
+        }
     }
 
-    &__button {
-        border: 0;
-        background: transparent;
-        cursor: pointer;
-        padding: 0;
-        margin: 0;
-        outline: none;
-        color: #9CA1B4;
-        font-size: 14px;
+    &__content {
+        padding-left: 1rem;
+        display: flex;
+        gap: 2px;
+
+        &--input {
+            width: 250px;
+        }
     }
 }

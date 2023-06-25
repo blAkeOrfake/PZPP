@@ -45,6 +45,14 @@
         "frequency": "Frequency",
         "nextPaymentDate": "Next payment date"
     },
+    "settings": {
+        "label": "Settings",
+        "language": "Language",
+        "languageDescription": "Choose your language application",
+        "theme": "Theme",
+        "dark": "Dark",
+        "light": "Light"
+    },
     "languages": {
         "en": "EN",
         "pl": "PL"

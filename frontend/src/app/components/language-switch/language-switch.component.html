@@ -1,5 +1,16 @@
 <div class="language-selector">
-    <button (click)="setLanguage('en')" class="language-selector__button">{{ 'languages.en' | translate }}</button>
-    <span class="language-selector__separator">/</span>
-    <button (click)="setLanguage('pl')" class="language-selector__button">{{'languages.pl' | translate }}</button>
+    <div class="language-selector__header">
+        <h2 class="language-selector__header--title">{{ 'settings.language' | translate }}</h2>
+    </div>
+    <div class="language-selector__content">
+        <div [formGroup]="langForm">
+            <mat-form-field class="language-selector__content--input">
+                <mat-label>{{ 'settings.languageDescription' | translate }}</mat-label>
+                <mat-select formControlName="selectedLanguage">
+                    <mat-option value="en" (click)="setLanguage('en')">{{ 'languages.en' | translate }}</mat-option>
+                    <mat-option value="pl" (click)="setLanguage('pl')">{{ 'languages.pl' | translate }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
 </div>
