@@ -19,7 +19,6 @@ export class LanguageSwitchComponent {
   setLanguage(language: string) {
     localStorage.setItem('language', language);
     this.translateService.use(language);
-    window.location.reload();
   }
 
 }
