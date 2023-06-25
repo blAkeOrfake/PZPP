@@ -5,7 +5,7 @@
         </div>
     
        <div class="account__name-tile__name">
-        {{ fullName }}
+        {{ 'account.label' | translate }}
        </div>
     </div>
     
@@ -13,69 +13,69 @@
         <div class="ac-tile account-info">
             <div class="account-info__columns">
                 <div class="account-info__columns-column">
-                    <h3 class="account-info__title">Account info</h3>
+                    <h3 class="account-info__title">{{ 'account.label' | translate }}</h3>
                     <div class="account-info__row">
-                        <div class="account-info__row--title">First Name:</div>
+                        <div class="account-info__row--title">{{ 'account.firstName' | translate }}:</div>
                         <div class="account-info__row--value">{{ person.firstName }}</div>
                     </div>
                     <div class="account-info__row">
-                        <div class="account-info__row--title">Last Name:</div>
+                        <div class="account-info__row--title">{{ 'account.lastName' | translate }}:</div>
                         <div class="account-info__row--value">{{ person.lastName }}</div>
                     </div>
                     <div class="account-info__row">
-                        <div class="account-info__row--title">User Name:</div>
+                        <div class="account-info__row--title">{{ 'account.username' | translate }}:</div>
+                        <div class="account-info__row--value">{{ person.username }}</div>
+                    </div>
+                    <div class="account-info__row">
+                        <div class="account-info__row--title">{{ 'account.phoneNumber' | translate }}:</div>
                         <div class="account-info__row--value">{{ person.phoneNumber }}</div>
                     </div>
                     <div class="account-info__row">
-                        <div class="account-info__row--title">Phone Number:</div>
-                        <div class="account-info__row--value">{{ person.phoneNumber }}</div>
-                    </div>
-                    <div class="account-info__row">
-                        <div class="account-info__row--title">Country:</div>
+                        <div class="account-info__row--title">{{ 'account.country' | translate }}:</div>
                         <div class="account-info__row--value">{{ person.country }}</div>
                     </div>
                 </div>
                 <div class="account-info__columns-column">
-                    <h3 class="account-info__title">Address</h3>
+                    <h3 class="account-info__title">{{ 'account.homeAddress' | translate }}</h3>
                     <div class="account-info__row">
-                        <div class="account-info__row--title">Address:</div>
+                        <div class="account-info__row--title">{{ 'account.address' | translate }}:</div>
                         <div class="account-info__row--value">{{ person.address }}</div>
                     </div>
                     <div class="account-info__row">
-                        <div class="account-info__row--title">City:</div>
+                        <div class="account-info__row--title">{{ 'account.city' | translate }}:</div>
                         <div class="account-info__row--value">{{ person.city }}</div>
                     </div>
                     <div class="account-info__row">
-                        <div class="account-info__row--title">Postal Code:</div>
+                        <div class="account-info__row--title">{{ 'account.postalCode' | translate }}:</div>
                         <div class="account-info__row--value">{{ person.postalCode }}</div>
                     </div>
                     <ng-container *ngIf="person.contactAddress || person.contactCity || person.contactPostalCode">
-                        <h3 class="account-info__title">Contact Address</h3>
+                        <h3 class="account-info__title">{{ 'account.contactAddress' | translate }}</h3>
                         <div class="account-info__row">
-                            <div class="account-info__row--title">Address:</div>
+                            <div class="account-info__row--title">{{ 'account.address' | translate }}:</div>
                             <div class="account-info__row--value">{{ person.contactAddress }}</div>
                         </div>
                         <div class="account-info__row">
-                            <div class="account-info__row--title">City:</div>
+                            <div class="account-info__row--title">{{ 'account.city' | translate }}:</div>
                             <div class="account-info__row--value">{{ person.contactCity }}</div>
                         </div>
                         <div class="account-info__row">
-                            <div class="account-info__row--title">Postal Code:</div>
+                            <div class="account-info__row--title">{{ 'account.postalCode' | translate }}:</div>
                             <div class="account-info__row--value">{{ person.contactPostalCode }}</div>
                         </div>
                     </ng-container>
                     <ng-container *ngIf="person.taxAddress || person.taxCity || person.taxPostalCode">
-                        <h3 class="account-info__title">Tax Address</h3>
+                        <h3 class="account-info__title">{{ 'account.taxAddress' | translate }}</h3>
                         <div class="account-info__row">
-                            <div class="account-info__row--title">Address:</div>
+                            <div class="account-info__row--title">{{ 'account.address' | translate }}:</div>
                             <div class="account-info__row--value">{{ person.taxAddress }}</div>
                         </div>
                         <div class="account-info__row">
-                            <div class="account-info__row--title">City:</div>
+                            <div class="account-info__row--title">{{ 'account.city' | translate }}:</div>
                             <div class="account-info__row--value">{{ person.taxCity }}</div>
                         </div>
                         <div class="account-info__row">
-                            <div class="account-info__row--title">Postal Code:</div>
+                            <div class="account-info__row--title">{{ 'account.postalCode' | translate }}:</div>
                             <div class="account-info__row--value">{{ person.taxPostalCode }}</div>
                         </div>
                     </ng-container>
@@ -85,12 +85,12 @@
         <div class="widgets__row">
             <div class="ac-tile widget-balance">
                 <div class="widget-balance--balance__total">
-                    <div class="widget-balance--balance__total--title">Total balance</div>
+                    <div class="widget-balance--balance__total--title">{{ 'account.totalBalance' | translate }}</div>
                     <div class="widget-balance--balance__total--value">£ 0.00</div>
                 </div>
             </div>
             <div class="ac-tile predefined-receivers">
-                <h3 class="predefined-receivers__title">Predefined receivers</h3>
+                <h3 class="predefined-receivers__title">{{ 'account.predefintedRecivers' | translate }}</h3>
                 <div class="predefined-receivers__item">
                     <div class="predefined-receivers__item--content">
                         <div class="predefined-receivers__item--content__icon">
@@ -106,7 +106,7 @@
         </div>
     
         <div class="ac-tile last-transactions">
-            <h3 class="last-transactions__title">Last transactions</h3>
+            <h3 class="last-transactions__title">{{ 'common.lastTransactions' | translate }}</h3>
             <div class="last-transactions__item">
                     <div class="last-transactions__item__icon">
                         <span class="material-icons-outlined title-icon">swap_horiz</span>

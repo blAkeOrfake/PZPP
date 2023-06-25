@@ -1,6 +1,6 @@
 <div class="dashboard-container">
     <div class="dashboard-container__header">
-        <div class="title">Dashboard. Hello {{ user?.username }}</div>
+        <div class="title">{{ title }}</div>
         
         <div>
             <app-accounts-widget
@@ -10,7 +10,7 @@
     </div>
 
     <div class="last-transactions">
-        <h3 class="last-transactions__title">Last transactions</h3>
+        <h3 class="last-transactions__title">{{ 'common.lastTransactions' | translate }}</h3>
         <div class="last-transactions__item">
                 <div class="last-transactions__item__icon">
                     <span class="material-icons-outlined title-icon">swap_horiz</span>

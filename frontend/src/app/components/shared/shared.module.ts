@@ -12,6 +12,7 @@ import { AccountsWidgetComponent } from './accounts-widget/accounts-widget.compo
 import { AddAccountDialogComponent } from './dialogs/add-account-dialog/add-account-dialog.component';
 import { AddPernamentTransferDialogComponent } from './dialogs/add-pernament-transfer-dialog/add-pernament-transfer-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AddPernamentTransferDialogComponent
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     MatDialogModule,
     MatLegacyDialogModule,

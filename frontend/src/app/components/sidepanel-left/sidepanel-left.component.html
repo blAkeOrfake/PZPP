@@ -1,13 +1,13 @@
 <div class="sidepanel__content">
     <div class="title">
         <span class="material-icons-outlined title-icon">account_balance</span>
-        Bank
+        {{ 'sidepanel.title' | translate }}
     </div>
     <div class="navigation">
         <div [routerLink]="'account-details'" [routerLinkActive]="['nav-item--is-active']"
             class="nav-item nav-item--account">
             <span class="material-icons-outlined nav-item--icon">person</span>
-            {{ fullName }}
+            {{ 'account.label' | translate }}
         </div>
         <div [routerLink]="'dashboard'" [routerLinkActive]="['nav-item--is-active']" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">dashboard</span>

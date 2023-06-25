@@ -6,13 +6,13 @@
         "label": "Zarejestruj się",
         "userDetails": "Dane użytkownika",
         "confirmPassword": "Potwierdź hasło",
-        "homeAddress": "Adres zamieszkania",
-        "contactAddress": "Adres kontaktowy",
-        "taxAddress": "Adres podatkowy",
         "myContactAddressIsDifferentFromMyHomeAddress": "Mój adres kontaktowy jest inny niż adres zamieszkania",
         "myTaxAddressIsDifferentFromMyContatAddress": "Mój adres podatkowy jest inny niż adres zamieszkania"
     },
     "account": {
+        "label": "Profil",
+        "accountInfo": "Informacje o koncie",
+        "newAccount": "Nowe konto",
         "username": "Nazwa użytkownika",
         "password": "Hasło",
         "firstName": "Imię",
@@ -21,20 +21,38 @@
         "address": "Adres",
         "postalCode": "Kod pocztowy",
         "city": "Miasto",
-        "country": "Kraj"
+        "country": "Kraj",
+        "accountName": "Nazwa konta",
+        "accountType": "Typ konta",
+        "homeAddress": "Adres zamieszkania",
+        "contactAddress": "Adres kontaktowy",
+        "taxAddress": "Adres podatkowy",
+        "totalBalance": "Saldo",
+        "predefintedRecivers": "Odbiorcy",
+        "addNewAccount": "Dodaj nowe konto"
     },
-    "dialog": {
-        "title": {
-            "addNewPernamentTransfer": "Dodaj nowy cykliczny przelew"
-        }
+    "dashboard": {
+        "label": "Pulpit, witaj {{name}}!"
+    },
+    "payments": {
+        "label": "Płatności",
+        "addPernamentTransfer": "Dodaj cykliczny przelew",
+        "pernamentTransfersList": "Lista cyklicznych przelewów",
+        "name": "Nazwa",
+        "title": "Tytuł",
+        "value": "Wartość",
+        "frequency": "Częstotliwość",
+        "nextPaymentDate": "Data następnego przelewu"
     },
     "languages": {
         "en": "EN",
         "pl": "PL"
     },
     "sidepanel": {
+        "title": "Aplikacja bankowa",
+        "statistics": "Statystyki",
         "navigation": {
-            "dashboard": "Dashboard",
+            "dashboard": "Pulpit",
             "payments": "Płatności",
             "transactions": "Transakcje",
             "accounts": "Konta",
@@ -58,9 +76,20 @@
         "passwordsDoNotMatch": "Hasła nie są takie same"
     },
     "common": {
+        "cancel": "Anuluj",
+        "save": "Zapisz",
         "login": "Zaloguj",
         "register": "Zarejestruj",
-        "loading": "Ładowanie..."
+        "loading": "Ładowanie...",
+        "transferMoney": "Przelej pieniądze",
+        "lastTransactions": "Ostatnie transakcje"
+    },
+    "enums": {
+        "accountType": {
+            "Currency": "Walutowe",
+            "Savings": "Oszczędnościowe",
+            "General": "Ogólne"
+        }
     }
   }
   

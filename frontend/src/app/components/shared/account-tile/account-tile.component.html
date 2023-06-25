@@ -18,7 +18,7 @@
             </div>
             <div class="account-balance">$ {{ accountBalance }}</div>
             <div class="action-btn">
-                <button mat-raised-button class="g-btn-primary">Transfer money</button>
+                <button mat-raised-button class="g-btn-primary">{{ 'common.transferMoney' | translate }}</button>
             </div>
         </ng-container>
     </div>
@@ -35,7 +35,7 @@
             >
                 <mat-icon>add_circle</mat-icon>
             </button>
-            <div class="account-add-label">New account</div>
+            <div class="account-add-label">{{ 'account.newAccount' | translate }}</div>
         </div>
     </div>
 </ng-template>

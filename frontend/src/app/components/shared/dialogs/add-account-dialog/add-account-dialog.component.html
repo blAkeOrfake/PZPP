@@ -1,19 +1,19 @@
-<h1 mat-dialog-title>Add new account</h1>
+<h1 mat-dialog-title>{{ 'account.addNewAccount' | translate }}</h1>
 <div mat-dialog-content class="dialog-input-wrapper">
   <mat-form-field appearance="fill">
-    <mat-label>Account name</mat-label>
+    <mat-label>{{ 'account.accountName' | translate }}</mat-label>
     <input matInput [(ngModel)]="accountName">
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Account type</mat-label>
+    <mat-label>{{ 'account.accountType' | translate }}</mat-label>
     <mat-select [ngModel]="accountType">
       <mat-option *ngFor="let type of accountTypes" [value]="type.value">
-        {{type.viewValue}}
+        {{ 'enums.accountType.' + type.viewValue | translate }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">Cancel</button>
-  <button mat-button (click)="onAddClick()">Add</button>
+  <button mat-button (click)="onCancelClick()">{{ 'common.cancel' | translate }}</button>
+  <button mat-button (click)="onAddClick()">{{ 'common.save' | translate }}</button>
 </div>

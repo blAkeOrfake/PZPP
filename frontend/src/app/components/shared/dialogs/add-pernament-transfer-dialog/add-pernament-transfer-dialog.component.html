@@ -1,10 +1,10 @@
 <div class="transfer-dialog__header">
-    <h1 mat-dialog-title>Add new pernament transfer</h1>
+    <h1 mat-dialog-title>{{ 'payments.addPernamentTransfer' | translate }}</h1>
 </div>
 <div mat-dialog-content class="transfer-dialog__content">
     <p>add-pernament-transfer-dialog works!</p>
 </div>
 <div mat-dialog-actions class="transfer-dialog__footer">
-  <button (click)="onCancelClick()" class="transfer-dialog__footer--cancel">Cancel</button>
-  <button (click)="onAddClick()" class="transfer-dialog__footer--submit">Add</button>
+  <button (click)="onCancelClick()" class="transfer-dialog__footer--cancel">{{ 'common.cancel' | translate }}</button>
+  <button (click)="onAddClick()" class="transfer-dialog__footer--submit">{{ 'common.save' | translate }}</button>
 </div>

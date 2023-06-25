@@ -86,6 +86,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    TranslateModule,
+    TranslatePipe
+  ]
 })
 export class AppModule { }

@@ -6,13 +6,13 @@
         "label": "Register",
         "userDetails": "User details",
         "confirmPassword": "Confirm password",
-        "homeAddress": "Home address",
-        "contactAddress": "Contact address",
-        "taxAddress": "Tax address",
         "myContactAddressIsDifferentFromMyContactAddress": "My home address is different from my contact address",
         "myTaxAddressIsDifferentFromMyContactAddress": "My tax address is different from my contact address"
     },
     "account": {
+        "label": "Profile",
+        "accountInfo": "Account info",
+        "newAccount": "New account",
         "username": "Username",
         "password": "Password",
         "firstName": "First name",
@@ -21,18 +21,37 @@
         "address": "Address",
         "postalCode": "Postal code",
         "city": "City",
-        "country": "Country"
+        "country": "Country",
+        "accountName": "Account name",
+        "accountType": "Account type",
+        "homeAddress": "Home address",
+        "contactAddress": "Contact address",
+        "taxAddress": "Tax address",
+        "totalBalance": "Total balance",
+        "predefintedRecivers": "Predefined recivers",
+        "addNewAccount": "Add new account"
     },
-    "dialog": {
-        "title": {
-            "addNewPernamentTransfer": "Add new pernament transfer"
-        }
+    "dashboard": {
+        "label": "Dashboard. Welcome {{name}}!",
+        "lastTransactions": "Last transactions"
+    },
+    "payments": {
+        "label": "Payments",
+        "addPernamentTransfer": "Add pernament transfer",
+        "pernamentTransfersList": "Pernament transfers list",
+        "name": "Name",
+        "title": "Title",
+        "value": "Value",
+        "frequency": "Frequency",
+        "nextPaymentDate": "Next payment date"
     },
     "languages": {
         "en": "EN",
         "pl": "PL"
     },
     "sidepanel": {
+        "title": "Banking App",
+        "statistics": "Statistics",
         "navigation": {
             "dashboard": "Dashboard",
             "payments": "Payments",
@@ -58,9 +77,19 @@
         "passwordsDoNotMatch": "Passwords do not match"
     },
     "common": {
+        "cancel": "Cancel",
+        "save": "Save",
         "login": "Login",
         "register": "Register",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "transferMoney": "Transfer money"
+    },
+    "enums": {
+        "accountType": {
+            "Currency": "Currency",
+            "Savings": "Savings",
+            "General": "General"
+        }
     }
   }
   

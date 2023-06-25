@@ -54,7 +54,7 @@
                             </div>
                         </div>
                        <div class="registerForm--columns__column">
-                            <h4>{{ 'registerForm.contactAddress' | translate }}</h4>
+                            <h4>{{ 'account.contactAddress' | translate }}</h4>
                             <mat-form-field>
                                 <mat-label>{{ 'account.address' | translate }}</mat-label>
                                 <input type="text" formControlName="address" matInput />
@@ -102,7 +102,7 @@
                                 </mat-checkbox>
 
                             <ng-container *ngIf="showForm('contact')">
-                                <h4>{{ 'registerForm.homeAddress' | translate }}</h4>
+                                <h4>{{ 'account.homeAddress' | translate }}</h4>
                                 <mat-form-field>
                                     <mat-label>{{ 'account.address' | translate }}</mat-label>
                                     <input type="text" formControlName="contactAddress" matInput />
@@ -129,7 +129,7 @@
                             </ng-container>
 
                             <ng-container *ngIf="showForm('tax')">
-                                <h4>{{ 'registerForm.taxAddress' | translate }}</h4>
+                                <h4>{{ 'account.taxAddress' | translate }}</h4>
                                 <mat-form-field>
                                     <mat-label>{{ 'account.address' | translate }}</mat-label>
                                     <input type="text" formControlName="taxAddress" matInput />
