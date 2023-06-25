@@ -1,6 +1,14 @@
 <div class="payments">
     <div class="payments__header">
-        <span class="payments__header--title">{{ 'payments.label' | translate }}</span>
+        <div class="payments__header__name-tile">
+            <div class="payments__header__name-tile__icon">
+                <span class="material-icons-outlined title-icon">payments</span>
+            </div>
+        
+           <div class="payments__header__name-tile__name">
+            {{ 'payments.label' | translate }}
+           </div>
+        </div>
         <button class="payments__header--add-button" (click)="addPernamentPaymentModal()">{{ 'payments.addPernamentTransfer' | translate }}</button>
     </div>
     <div class="payments__content">
