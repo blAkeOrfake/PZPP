@@ -1,5 +1,7 @@
-<h1 mat-dialog-title>{{ 'account.addNewAccount' | translate }}</h1>
-<div mat-dialog-content class="dialog-input-wrapper">
+<div class="add-account-dialog__header">
+  <h1 mat-dialog-title>{{ 'account.addNewAccount' | translate }}</h1>
+</div>
+<div mat-dialog-content class="add-account-dialog__content">
   <mat-form-field appearance="fill">
     <mat-label>{{ 'account.accountName' | translate }}</mat-label>
     <input matInput [(ngModel)]="accountName">
@@ -13,7 +15,7 @@
     </mat-select>
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">{{ 'common.cancel' | translate }}</button>
-  <button mat-button (click)="onAddClick()">{{ 'common.save' | translate }}</button>
+<div mat-dialog-actions class="add-account-dialog__footer">
+  <button (click)="onCancelClick()" class="add-account-dialog__footer--cancel">{{ 'common.cancel' | translate }}</button>
+  <button (click)="onAddClick()" class="add-account-dialog__footer--submit">{{ 'common.save' | translate }}</button>
 </div>

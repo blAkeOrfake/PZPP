@@ -27,13 +27,21 @@
     }
 
     &__sidepanel {
-        width: 300px;
-        height: 100%;
-
-        background-color: #EBEBF4;
-        border-radius: 0px 24px 24px 0px;
-
         font-size: 18px;
+
+        &--left {
+            background-color: #EBEBF4;
+            border-radius: 0px 24px 24px 0px;
+            width: 200px;
+            height: 100%;
+        }
+
+        &--right {
+            background-color: #EBEBF4;
+            border-radius: 24px 0px 0px 24px;
+            width: 200px;
+            height: 100%;
+        }
 
         &__content {
             padding: 16px;
