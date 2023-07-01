@@ -17,7 +17,7 @@
             <span class="material-icons-outlined nav-item--icon">receipt_long</span>
             {{ 'sidepanel.navigation.payments' | translate }}
         </div>
-        <div [routerLink]="" class="nav-item">
+        <div [routerLink]="'transactions'" [routerLinkActive]="['nav-item--is-active']" class="nav-item">
             <span class="material-icons-outlined nav-item--icon">swap_horiz</span>
             {{ 'sidepanel.navigation.transactions' | translate }}
         </div>

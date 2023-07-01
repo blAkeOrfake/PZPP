@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { TransactionService } from 'src/app/services/transactions.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +20,7 @@ export class DashboardComponent implements OnInit {
   transactions: Transaction[] = [];
 
   constructor(
+    private router: Router,
     private authService: AuthService,
     private accountsService: AccountsService,
     private translateService: TranslateService,
@@ -64,5 +66,9 @@ export class DashboardComponent implements OnInit {
         return modifiedTransaction;
       });
     });
+  }
+
+  navigateToTransactions() {
+    this.router.navigate(['/transactions']);
   }
 }
