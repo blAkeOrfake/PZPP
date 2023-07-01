@@ -7,6 +7,7 @@ import { TransactionService } from 'src/app/services/transactions.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/services/users.service';
 import { Router } from '@angular/router';
+import { TransactionMapper } from 'src/app/mappers/transactionMapper';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +26,8 @@ export class DashboardComponent implements OnInit {
     private accountsService: AccountsService,
     private translateService: TranslateService,
     private transactionService: TransactionService,
-    private userService: UserService
+    private userService: UserService,
+    private transactionMapper: TransactionMapper
   ) {
     this.user = this.authService.userValue;
   }
@@ -44,11 +46,13 @@ export class DashboardComponent implements OnInit {
     this.transactionService.getUserTransactions(this.userId).subscribe((response) => {
       console.log('user transactions: ', response);
 
+      
+
       this.transactions = response.map((transaction) => {
         const modifiedTransaction: Transaction = {
           id: transaction.id,
           type: transaction.type,
-          category: transaction.category,
+          category: this.transactionMapper.mapTransactionCategory(transaction.category || ''),
           fromId: transaction.fromId,
           toId: transaction.toId,
           amount: transaction.amount,
@@ -70,5 +74,37 @@ export class DashboardComponent implements OnInit {
 
   navigateToTransactions() {
     this.router.navigate(['/transactions']);
+  }
+
+  mapTransactionType(typeId: string): string {
+    switch (typeId.toString()) {
+      case "0":
+        return 'INTERNAL';
+      case "1":
+        return 'EXTERNAL';
+      default:
+        return typeId;
+    }
+  }
+
+  mapTransactionCategory(categoryId: string): string {
+    switch (categoryId.toString()) {
+      case "0":
+        return 'Shopping';
+      case "1":
+        return 'Health Care';
+      case "2":
+        return 'Bills';
+      case "3":
+        return 'Food';
+      case "4":
+        return 'Entertainment';
+      case "5":
+        return 'Transfer';
+      case "6":
+        return 'Other';
+      default:
+        return 'Unknown category';
+    }
   }
 }

@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { TransactionService } from 'src/app/services/transactions.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/services/users.service';
+import { TransactionMapper } from 'src/app/mappers/transactionMapper';
 
 @Component({
   selector: 'transactions-component',
@@ -21,8 +22,8 @@ export class TransactionsComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private transactionService: TransactionService,
-    private translateService: TranslateService,
-    private userService: UserService
+    private userService: UserService,
+    private transactionMapper: TransactionMapper
   ) {
     this.user = this.authService.userValue;
   }
@@ -37,7 +38,7 @@ export class TransactionsComponent implements OnInit {
           const modifiedTransaction: Transaction = {
             id: transaction.id,
             type: transaction.type,
-            category: transaction.category,
+            category: this.transactionMapper.mapTransactionCategory(transaction.category || ''),
             fromId: transaction.fromId,
             toId: transaction.toId,
             amount: transaction.amount,

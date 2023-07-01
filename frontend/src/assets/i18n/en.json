@@ -90,7 +90,9 @@
         "login": "Login",
         "register": "Register",
         "loading": "Loading...",
-        "transferMoney": "Transfer money"
+        "transferMoney": "Transfer money",
+        "lastTransactions": "Last transactions",
+        "seeAll" : "See all"
     },
     "enums": {
         "accountType": {
@@ -98,6 +100,15 @@
             "Savings": "Savings",
             "General": "General"
         }
+    },
+    "transactionCategories" : {
+        "shopping" : "Shopping",
+        "healtCare" : "Health care",
+        "bills" : "Bills",
+        "entertainment" : "Entertainment",
+        "food" : "Food",
+        "transfer" : "Transfer",
+        "other" : "Other"
     }
   }
   

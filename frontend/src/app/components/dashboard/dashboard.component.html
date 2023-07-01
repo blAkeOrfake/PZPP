@@ -29,6 +29,6 @@
             <div class="last-transactions__item__value">£ {{ transaction.amount }}</div>
         </div>
 
-        <button *ngIf="transactions.length > 5" (click)="navigateToTransactions()" class="see-all-button">See all transactions</button>
+        <button *ngIf="transactions.length > 5" (click)="navigateToTransactions()" class="see-all-button">{{ 'common.seeAll' | translate }}</button>
     </div>
 </div>

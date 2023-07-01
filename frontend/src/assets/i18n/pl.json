@@ -90,7 +90,8 @@
         "register": "Zarejestruj",
         "loading": "Ładowanie...",
         "transferMoney": "Przelej pieniądze",
-        "lastTransactions": "Ostatnie transakcje"
+        "lastTransactions": "Ostatnie transakcje",
+        "seeAll" : "Zobacz wszystko"
     },
     "enums": {
         "accountType": {
@@ -98,6 +99,15 @@
             "Savings": "Oszczędnościowe",
             "General": "Ogólne"
         }
+    },
+    "transactionCategories": {
+        "shopping": "Zakupy",
+        "healthCare": "Opieka zdrowotna",
+        "bills": "Rachunki",
+        "entertainment": "Rozrywka",
+        "food": "Jedzenie",
+        "transfer": "Przelew",
+        "other": "Inne"
     }
   }
   
