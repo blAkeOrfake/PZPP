@@ -27,6 +27,6 @@ export class SidepanelLeftComponent implements OnInit {
 
   logOut(): void {
     this.authService.logout();
+    localStorage.removeItem('userId');
   }
-
 }

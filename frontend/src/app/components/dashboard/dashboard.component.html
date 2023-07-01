@@ -11,17 +11,24 @@
 
     <div class="last-transactions">
         <h3 class="last-transactions__title">{{ 'common.lastTransactions' | translate }}</h3>
-        <div *ngFor="let transaction of transactions" class="last-transactions__item">
-                <div class="last-transactions__item__icon">
-                    <span class="material-icons-outlined title-icon">swap_horiz</span>
-                </div>
-                <span class="last-transactions__item__name">{{ transaction.fromId }}</span>
-                <div class="last-transactions__item__icon">
-                    <span class="material-icons-outlined title-icon">arrow_right_alt</span>
-                </div>
-                <span class="last-transactions__item__name">{{ transaction.toId }}</span>
-                <span class="last-transactions__item__description">{{ transaction.category }}</span>
-                <div class="last-transactions__item__value">£ {{ transaction.amount.toFixed(2) }}</div>
+        
+        <div *ngIf="transactions.length === 0" class="last-transactions__item">
+            No transactions
         </div>
+        
+        <div *ngFor="let transaction of transactions.slice(0, 5)" class="last-transactions__item">
+            <div class="last-transactions__item__icon">
+                <span class="material-icons-outlined title-icon">swap_horiz</span>
+            </div>
+            <span class="last-transactions__item__name">{{ transaction.fromId }}</span>
+            <div class="last-transactions__item__icon">
+                <span class="material-icons-outlined title-icon">arrow_right_alt</span>
+            </div>
+            <span class="last-transactions__item__name">{{ transaction.toId }}</span>
+            <span class="last-transactions__item__description">{{ transaction.category }}</span>
+            <div class="last-transactions__item__value">£ {{ transaction.amount }}</div>
+        </div>
+
+        <button *ngIf="transactions.length > 5" class="see-all-button">See all transactions</button>
     </div>
 </div>

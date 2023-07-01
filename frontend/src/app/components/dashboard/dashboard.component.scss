@@ -4,6 +4,28 @@
     width: 100%;
     height: 100%;
 }
+
+.see-all-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    margin-top: 1rem;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #495CDA;
+    border-radius: 8px;
+    border: 1px solid #495CDA;
+    transition: color .5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #495cdaba;
+        transition: background-color 0.1s ease-in-out;
+        border-color: #495cdaba;
+        transition: color .5s ease-in-out;
+    }
+}
+
 .title {
     font-size: 18px;
     color: $font-color;
@@ -14,6 +36,7 @@
 
 .last-transactions {
     margin: 32px 0 16px 0;
+
     &__title {
         font-size: 18px;
         color: #212948;

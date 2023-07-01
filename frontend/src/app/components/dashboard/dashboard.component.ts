@@ -5,6 +5,7 @@ import { Transaction } from 'src/app/models/transactions-model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TransactionService } from 'src/app/services/transactions.service';
 import { TranslateService } from '@ngx-translate/core';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,24 +22,47 @@ export class DashboardComponent implements OnInit {
     private authService: AuthService,
     private accountsService: AccountsService,
     private translateService: TranslateService,
-    private transactionService: TransactionService
-  ) { 
+    private transactionService: TransactionService,
+    private userService: UserService
+  ) {
     this.user = this.authService.userValue;
   }
 
   ngOnInit(): void {
-    // TODO: Get User and set userId
+    this.userId = parseInt(localStorage.getItem('userId') || '0');
+
     this.accountsService.getAccounts().subscribe((response) => {
       console.log('accounts from be', response);
     });
 
-    this.translateService.get('dashboard.label', {name: this.user?.username}).subscribe((translation: string) => {
+    this.translateService.get('dashboard.label', { name: this.user?.username }).subscribe((translation: string) => {
       this.title = translation;
     });
 
     this.transactionService.getUserTransactions(this.userId).subscribe((response) => {
-      this.transactions = response;
       console.log('user transactions: ', response);
+
+      this.transactions = response.map((transaction) => {
+        const modifiedTransaction: Transaction = {
+          id: transaction.id,
+          type: transaction.type,
+          category: transaction.category,
+          fromId: transaction.fromId,
+          toId: transaction.toId,
+          amount: transaction.amount,
+          date: transaction.date
+        };
+
+        this.userService.getUserById(parseInt(transaction.fromId)).subscribe((fromUser) => {
+          modifiedTransaction.fromId = fromUser?.username || 'User not found';
+        });
+
+        this.userService.getUserById(parseInt(transaction.toId)).subscribe((fromUser) => {
+          modifiedTransaction.toId = fromUser?.username || 'User not found';
+        });
+
+        return modifiedTransaction;
+      });
     });
   }
 }
