@@ -11,17 +11,17 @@
 
     <div class="last-transactions">
         <h3 class="last-transactions__title">{{ 'common.lastTransactions' | translate }}</h3>
-        <div class="last-transactions__item">
+        <div *ngFor="let transaction of transactions" class="last-transactions__item">
                 <div class="last-transactions__item__icon">
                     <span class="material-icons-outlined title-icon">swap_horiz</span>
                 </div>
-                <span class="last-transactions__item__name">John Doe</span>
+                <span class="last-transactions__item__name">{{ transaction.fromId }}</span>
                 <div class="last-transactions__item__icon">
                     <span class="material-icons-outlined title-icon">arrow_right_alt</span>
                 </div>
-                <span class="last-transactions__item__name">Jane Doe</span>
-                <span class="last-transactions__item__description">for rough sex</span>
-                <div class="last-transactions__item__value">£ 0.00</div>
+                <span class="last-transactions__item__name">{{ transaction.toId }}</span>
+                <span class="last-transactions__item__description">{{ transaction.category }}</span>
+                <div class="last-transactions__item__value">£ {{ transaction.amount.toFixed(2) }}</div>
         </div>
     </div>
 </div>
