@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { TransactionsComponent } from './components/transactions/transactions-component';
 import { AuthGuard } from './helpers/auth.guard';
 import { PaymentsComponent } from './components/payments/payments.component';
 
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path:'payments',
     component: PaymentsComponent,
+  },
+  {
+    path:'transactions',
+    component: TransactionsComponent,
   },
   { 
     path: '**',

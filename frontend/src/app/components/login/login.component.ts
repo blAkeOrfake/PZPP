@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { first } from 'rxjs';
 import { ERoutes } from 'src/app/helpers/routes';
 import { AlertService } from 'src/app/services/alert/alert.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -46,17 +45,38 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) return;
 
     this.loading = true;
+    // this.authService.login(this.f['username'].value, this.f['password'].value)
+    //     .subscribe(() => {
+    //             this.loading = false;
+    //             this.router.navigate([ERoutes.Dashboard]);
+    //             localStorage.setItem('userId', user.id);
+    //       },
+    //       (err) => {
+    //         this.alertService.error(err);
+    //         console.log(err);
+    //         this.loading = false;
+    //       }
+    //     );
+
     this.authService.login(this.f['username'].value, this.f['password'].value)
-        .subscribe(() => {
-                this.loading = false;
-                this.router.navigate([ERoutes.Dashboard]);
-          },
-          (err) => {
-            this.alertService.error(err);
-            console.log(err);
-            this.loading = false;
-          }
-        );
+      .subscribe(
+        (user) => {
+          // Save user ID in localStorage upon successful login
+          localStorage.setItem('userId', user.id);
+
+          // Redirect to dashboard
+          this.router.navigate([ERoutes.Dashboard]);
+        },
+        (err) => {
+          // Handle login error
+          this.alertService.error(err);
+          console.log(err);
+          this.loading = false;
+        }
+      );
+
+    // ...
+  }
 
         //   {
         //     next: () => {
@@ -76,4 +96,4 @@ export class LoginComponent implements OnInit {
     // this.router.navigate(['/dashboard']);
 }
 
-}
+
