@@ -30,6 +30,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
 import { TranslatePipe } from './components/shared/pipes/translate.pipe';
 import { TransactionsComponent } from './components/transactions/transactions-component';
+import { TransactionDialogComponent } from './components/transaction-dialog/transaction-dialog-component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PaymentsComponent,
     LanguageSwitchComponent,
     TransactionsComponent,
+    TransactionDialogComponent,
     TranslatePipe
   ],
   imports: [
