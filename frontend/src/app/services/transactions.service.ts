@@ -17,4 +17,8 @@ export class TransactionService {
       return response.map((x: any) => new Transaction(x))
     }));
   }
+
+  sendTransaction(transaction: Transaction): Observable<ITransaction> {
+    return this.httpClient.post(`${this.transactionsUrl}/send`, transaction).pipe(map((response: any) => new Transaction(response)));
+  }
 }
