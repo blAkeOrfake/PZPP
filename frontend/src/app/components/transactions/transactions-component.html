@@ -1,9 +1,9 @@
 <div class="transactions">
-    <h2>Transactions</h2>
+    <h2>{{ 'transactions.label' | translate }}</h2>
 
     <div class="last-transactions">
         <div *ngIf="transactions.length === 0" class="last-transactions__item">
-            No transactions
+            {{ 'common.noTransactions' | translate }}
         </div>
         
         <div *ngFor="let transaction of transactions" class="last-transactions__item">

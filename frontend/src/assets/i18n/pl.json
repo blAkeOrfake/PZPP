@@ -6,8 +6,8 @@
         "label": "Zarejestruj się",
         "userDetails": "Dane użytkownika",
         "confirmPassword": "Potwierdź hasło",
-        "myContactAddressIsDifferentFromMyHomeAddress": "Mój adres kontaktowy jest inny niż adres zamieszkania",
-        "myTaxAddressIsDifferentFromMyContatAddress": "Mój adres podatkowy jest inny niż adres zamieszkania"
+        "myContactAddressIsDifferentFromMyContactAddress": "Mój adres kontaktowy jest inny niż adres zamieszkania",
+        "myTaxAddressIsDifferentFromMyContactAddress": "Mój adres podatkowy jest inny niż adres zamieszkania"
     },
     "account": {
         "label": "Profil",
@@ -92,7 +92,8 @@
         "loading": "Ładowanie...",
         "transferMoney": "Przelej pieniądze",
         "lastTransactions": "Ostatnie transakcje",
-        "seeAll" : "Zobacz wszystko"
+        "seeAll" : "Zobacz wszystko",
+        "noTransactions": "Brak transakcji"
     },
     "enums": {
         "accountType": {
@@ -109,6 +110,9 @@
         "food": "Jedzenie",
         "transfer": "Przelew",
         "other": "Inne"
+    },
+    "transactions": {
+        "label": "Transakcje"
     }
   }
   

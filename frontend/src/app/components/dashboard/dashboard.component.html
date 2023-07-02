@@ -13,7 +13,7 @@
         <h3 class="last-transactions__title">{{ 'common.lastTransactions' | translate }}</h3>
         
         <div *ngIf="transactions.length === 0" class="last-transactions__item">
-            No transactions
+            {{ 'common.noTransactions' | translate }}
         </div>
         
         <div *ngFor="let transaction of transactions.slice(0, 5)" class="last-transactions__item">
