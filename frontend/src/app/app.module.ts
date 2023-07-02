@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,8 @@ import { LanguageSwitchComponent } from './components/language-switch/language-s
 import { TranslatePipe } from './components/shared/pipes/translate.pipe';
 import { TransactionsComponent } from './components/transactions/transactions-component';
 import { TransactionDialogComponent } from './components/transaction-dialog/transaction-dialog-component';
+import { AtmsViewComponent } from './components/atms-view/atms-view.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LanguageSwitchComponent,
     TransactionsComponent,
     TransactionDialogComponent,
+    AtmsViewComponent,
     TranslatePipe
   ],
   imports: [
@@ -76,7 +80,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxChartsModule,
+    GoogleMapsModule
   ],
   providers: [
     { 

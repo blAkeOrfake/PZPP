@@ -62,6 +62,8 @@ export class AtmsViewComponent implements OnInit, AfterContentInit {
         type: 'atm'
       },
       (results, status) => {
+        console.log('results', results);
+        console.log('status', status);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           this.atms = results || [];
         }

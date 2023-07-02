@@ -19,7 +19,8 @@ export class AccountTileComponent implements OnInit {
 
 	transferForm: FormGroup = this.formBuilder.group({
 		recipient: '',
-		amount: 0
+		amount: 0,
+		category: 0
 	});
 
 	@Output() onAddAccount: EventEmitter<any> = new EventEmitter();
@@ -42,6 +43,7 @@ export class AccountTileComponent implements OnInit {
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
+			console.log('dialogresult, result');
 			if (result) {
 				const transferFormValue = result.transferFormValue;
 				const selectedUserId = result.selectedUserId;
@@ -49,15 +51,28 @@ export class AccountTileComponent implements OnInit {
 				const transaction: Transaction = {
 					fromId: this.userId,
 					toId: selectedUserId,
-					amount: transferFormValue,
+					amount: transferFormValue.amount,
+					category: transferFormValue.category,
 					type: '0'
 				}
 				
 				console.log(transaction);
 				
-				// this.transactionService.sendTransaction(transaction)
+				const data =this.prepareDataToSend(transaction);
+				this.transactionService.sendTransaction(data).subscribe((res) => {
+					console.log(res);
+				})
 			}
 		});
+	}
+
+	prepareDataToSend(transaction: any): any {
+		const data = Object.assign({}, transaction);
+		data.fromId = +transaction.fromId;
+		data.category = +transaction.category;
+		data.type = 1;
+
+		return data;
 	}
 }
 

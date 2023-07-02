@@ -8,6 +8,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { TransactionsComponent } from './components/transactions/transactions-component';
 import { AuthGuard } from './helpers/auth.guard';
 import { PaymentsComponent } from './components/payments/payments.component';
+import { AtmsViewComponent } from './components/atms-view/atms-view.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path:'transactions',
     component: TransactionsComponent,
+  },
+  {
+    path: 'atms',
+    component: AtmsViewComponent
   },
   { 
     path: '**',

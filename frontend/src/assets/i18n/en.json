@@ -68,7 +68,8 @@
             "cards": "Cards",
             "products": "Products",
             "settings": "Settings",
-            "logout": "Logout"
+            "logout": "Logout",
+            "atms": "Atms"
         }
     },
     "formErrors": {

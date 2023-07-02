@@ -6,6 +6,16 @@ import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { first } from 'rxjs';
 
+
+export enum TransactionCategoryEnum {
+    Shopping,
+    HealthCare,
+    Bills,
+    Food,
+    Entertainment,
+    Transfer,
+    Other
+}
 @Injectable({
     providedIn: 'root'
 })
@@ -24,20 +34,21 @@ export class TransactionMapper {
     }
 
    mapTransactionCategory(categoryId: string): string {
-        switch (categoryId.toString()) {
-            case "0":
-                return this.getString('transactionCategory.shopping');
-            case "1":
-                return this.getString('transactionCategory.healthCare');
-            case "2":
+        const id = parseInt(categoryId);
+        switch (id) {
+            case TransactionCategoryEnum.Shopping:
+                return this.getString('transactionCategories.shopping');
+            case TransactionCategoryEnum.HealthCare:
+                return this.getString('transactionCategories.healthCare');
+            case TransactionCategoryEnum.Bills:
                 return this.getString('transactionCategories.bills');
-            case "3":
+            case TransactionCategoryEnum.Food:
                 return this.getString('transactionCategories.food');
-            case "4":
+            case TransactionCategoryEnum.Entertainment:
                 return this.getString('transactionCategories.entertainment');
-            case "5":
+            case TransactionCategoryEnum.Transfer:
                 return this.getString('transactionCategories.transfer');
-            case "6":
+            case TransactionCategoryEnum.Other:
                 return this.getString('transactionCategories.other');
             default:
                 return 'Unknown category';

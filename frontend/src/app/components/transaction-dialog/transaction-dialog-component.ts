@@ -1,8 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/services/users.service';
 import { IUser } from 'src/app/models/user.model';
+import { TransactionCategoryEnum, TransactionMapper } from 'src/app/mappers/transactionMapper';
 
 @Component({
   selector: 'transaction-dialog',
@@ -10,7 +11,15 @@ import { IUser } from 'src/app/models/user.model';
   styleUrls: ['./transaction-dialog-component.scss']
 })
 export class TransactionDialogComponent {
-  transferForm: FormGroup;
+  readonly categoriesOptions = Object.keys(TransactionCategoryEnum).filter(x => !isNaN(Number(x)));
+  transferForm: FormGroup = new FormGroup(
+    {
+      recipient: new FormControl(''),
+      amount: new FormControl(0),
+      category: new FormControl({}),
+    }
+
+  );
   users: IUser[] = [];
   selectedUserId: number = 0;
   userId = '-1';
@@ -18,7 +27,8 @@ export class TransactionDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<TransactionDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private userService: UserService
+    private userService: UserService,
+    private transactionMapper: TransactionMapper
   ) {
     this.transferForm = data.transferForm;
     this.userId = localStorage.getItem('userId') || '-1';
@@ -26,11 +36,20 @@ export class TransactionDialogComponent {
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(users => {
-      this.users = users.filter(user => user.id !== this.userId);
+      this.users = users.filter(user => user.id != this.userId);
     });
   }
 
-  onNoClick(): void {
+  onSubmitClick(): void {
+    console.log('transferformvalue: ', this.transferForm.value);
     this.dialogRef.close({ transferFormValue: this.transferForm.value, selectedUserId: this.selectedUserId });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  getCategoryName(categoryId: string): string {
+    return this.transactionMapper.mapTransactionCategory(categoryId);
   }
 }

@@ -67,7 +67,8 @@
             "cards": "Karty",
             "products": "Produkty",
             "settings": "Ustawienia",
-            "logout": "Wyloguj"
+            "logout": "Wyloguj",
+            "atms": "Bankomaty"
         }
     },
     "formErrors": {

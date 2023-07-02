@@ -37,12 +37,12 @@ public class Account
         }
     }
 
-    public static Account GetGeneralAccountByUserId(int? id)
+    public static Account? GetGeneralAccountByUserId(int? id)
     {
         using (var context = new Database())
         {
             var userAccounts = context.Accounts.Where(a => a.UserId == id);
-            return userAccounts.First(a => a.Type == AccountType.General);
+            return userAccounts.FirstOrDefault(a => a.Type == AccountType.General);
         }
     }
 
